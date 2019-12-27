@@ -71,24 +71,19 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 		 * @return array
 		 * @since      1.0.0
 		 */
-		function theme_defaults( $defaults ) {
+		public function theme_defaults( $defaults ) {
 
-			$defaults['astra-slider-banner-heading']     			= __( 'Perfect Theme for Any Website', 'astra-slider' );
-			$defaults['astra-slider-banner-subheading']  			= __( 'Lightning Fast & Easily Customizable', 'astra-slider' );
-			$defaults['banner-font-family'] 				= 'inherit';
-			$defaults['banner-font-weight'] 				= 'inherit';
-			$defaults['banner-subheading-font-family'] 		= 'inherit';
-			$defaults['banner-subheading-font-weight'] 		= 'inherit';
-			$defaults['banner-heading-text-transform']		= '';
-			$defaults['banner-heading-font-size']			= '';
-			$defaults['banner-subheading-text-transform']	= '';
-			$defaults['banner-subheading-font-size']		= '';
-			$defaults['banner-bg-color'] 					= '#ffffff';
-			$defaults['banner-subheading-bg-color'] 		= '#ffffff';
-			$defaults['banner-image-size-option'] 			= 'custom-size';
-			$defaults['banner-custom-top-padding'] 			= '10';
-			$defaults['banner-custom-bottom-padding'] 		= '10';
-			$defaults['astra-slider-banner-image']     		= ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg';
+			$defaults['astra-slider-banner-1-heading']     	= 		__( 'Perfect Theme for Any Website', 'astra-slider' );
+			$defaults['astra-slider-banner-1-subheading']  	= 		__( 'Lightning Fast & Easily Customizable', 'astra-slider' );
+			$defaults['astra-slider-banner-1-image']     	= 		ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg';
+
+			$defaults['astra-slider-banner-2-heading']     	= 		__( 'Perfect Theme for Any Website', 'astra-slider' );
+			$defaults['astra-slider-banner-2-subheading']  	= 		__( 'Lightning Fast & Easily Customizable', 'astra-slider' );
+			$defaults['astra-slider-banner-2-image']     	= 		ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg';
+
+			$defaults['astra-slider-banner-3-heading']     	= 		__( 'Perfect Theme for Any Website', 'astra-slider' );
+			$defaults['astra-slider-banner-3-subheading']  	= 		__( 'Lightning Fast & Easily Customizable', 'astra-slider' );
+			$defaults['astra-slider-banner-3-image']     	= 		ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg';
 
 			return $defaults;
 		}
@@ -99,7 +94,7 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 		 * @see 'astra-customizer-controls-js' panel in parent theme
 		 * @since      1.0.0
 		 */
-		function preview_scripts() {
+		public function preview_scripts() {
 
 			wp_enqueue_script( 'home-page-banner-preview', ASTRA_SLIDER_BASE_URL . 'inc/assets/js/customizer-preview.js', array( 'astra-customizer-preview-js', 'customize-preview' ), HOME_PAGE_BANNER_VER, true );
 		}
@@ -110,7 +105,7 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 * @since      1.0.0
 		 */
-		function customize_register( $wp_customize ) {
+		public function customize_register( $wp_customize ) {
 
 			if ( ! defined( 'ASTRA_THEME_SETTINGS' ) ) {
 				return;
@@ -132,7 +127,7 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 		 * 
 		 * @since      1.0.0
 		 */
-		function controls_scripts() {
+		public function controls_scripts() {
 
 			wp_enqueue_script( 'home-page-banner-toggles', ASTRA_SLIDER_BASE_URL . 'inc/assets/js/customizer-toggles.js', array( 'astra-customizer-controls-toggle-js' ), HOME_PAGE_BANNER_VER, true );
 		}
@@ -144,15 +139,6 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 		 */
 		public function add_fonts() {
 
-			$font_family = astra_get_option( 'banner-font-family' );
-			$font_weight = astra_get_option( 'banner-font-weight' );
-
-			Astra_Fonts::add_font( $font_family, $font_weight );
-			
-			$subheading_font_family = astra_get_option( 'banner-subheading-font-family' );
-			$subheading_font_weight = astra_get_option( 'banner-subheading-font-weight' );
-
-			Astra_Fonts::add_font( $subheading_font_family, $subheading_font_weight );
 		}
 	}
 
