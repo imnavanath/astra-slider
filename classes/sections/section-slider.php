@@ -49,11 +49,11 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 						/**
 						 * Option: Slide Above Divider
 						 */
-						 array(
+						array(
 							'name'            => 'ast-slider-divider-section-slide-' . $base . '-header',
 							'type'            => 'control',
 							'control'         => 'ast-heading',
-							'section'         => 'section-astra-slide-'. $base .'-contents',
+							'section'         => 'section-slide-'. $base .'-contents',
 							'title'           => __( 'Slide ' . $base . ' ', 'astra-slider' ),
 							'priority'        => 5,
 						),
@@ -66,9 +66,9 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 							'default'        => astra_get_option( 'astra-slider-banner-'. $base .'-image' ),
 							'type'           => 'control',
 							'control'        => 'image',
-							'section'        => 'section-astra-slider-'. $base .'-contents',
+							'section'        => 'section-slide-'. $base .'-contents',
 							'priority'       => 10,
-							'title'          => __( 'Sticky Logo', 'astra-slider' ),
+							'title'          => __( 'Slide Background Image', 'astra-slider' ),
 							'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 						),
 
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 							'name'     => 'astra-slider-banner-'. $base .'-heading',
 							'default'  => astra_get_option( 'astra-slider-banner-'. $base .'-heading' ),
 							'type'     => 'control',
-							'section'  => 'section-astra-slider-'. $base .'-contents',
+							'section'  => 'section-slide-'. $base .'-contents',
 							'priority' => 15,
 							'title'    => __( 'Slide Heading', 'astra-slider' ),
 							'control'  => 'text',
@@ -93,12 +93,14 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 							'default'   => astra_get_option( 'astra-slider-banner-'. $base .'-subheading' ),
 							'type'      => 'control',
 							'control'   => 'textarea',
-							'section'   => 'section-astra-slider-'. $base .'-contents',
+							'section'   => 'section-slide-'. $base .'-contents',
 							'priority'  => 20,
 							'description' => __( 'Custom Text / HTML allowed.', 'astra-slider' ),
 							'title'     => __( 'Slide Description', 'astra' ),
 						),
 					);
+
+					$_config = array_merge( $configurations, $_config );
 				}
 			}
 

@@ -73,17 +73,18 @@ if ( ! class_exists( 'Astra_Slider_Panels_Configs' ) ) {
 
 				for( $base = 1; $base <= $ast_hompage_slide_count; $base++ ) {
 
-					$ast_slide = array(
+					$_config = array(
 						array(
-							'name'     => 'section-astra-slide-'. $base .'-contents',
+							'name'     => 'section-slide-'. $base .'-contents',
+							'type'     => 'section',
 							'title'    => __( 'Slide ' . $base .' ' , 'astra-slider' ),
+							'panel'    => 'panel-astra-slider',
 							'section'  => 'section-astra-slides',
 							'priority' => 5 + $base,
-							'type'     => 'section',
 						),
 					);
 
-					$_config = array_merge( $_config, $ast_slide );
+					$_config = array_merge( $configurations, $_config );
 				}
 			}
 
