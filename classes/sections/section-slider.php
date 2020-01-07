@@ -38,19 +38,17 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 
 			$ast_hompage_slide_count = apply_filters( 'ast_hompage_slide_count', 3 );
 
-			$_config = array();
-
 			if( $ast_hompage_slide_count ) {
 
 				for( $base = 1; $base <= $ast_hompage_slide_count; $base++ ) {
 
-					$_config = array(
+					${"ast_slide_$base"} = array(
 
 						/**
 						 * Option: Slide Above Divider
 						 */
 						array(
-							'name'            => 'ast-slider-divider-section-slide-' . $base . '-header',
+							'name'            => ASTRA_THEME_SETTINGS . '[ast-slider-divider-section-slide-' . $base . '-header]',
 							'type'            => 'control',
 							'control'         => 'ast-heading',
 							'section'         => 'section-slide-'. $base .'-contents',
@@ -62,13 +60,13 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 						 * Option: Slide image selector
 						 */
 						array(
-							'name'           => 'astra-slider-banner-'. $base .'-image',
+							'name'           => ASTRA_THEME_SETTINGS . '[astra-slider-banner-'. $base .'-image]',
 							'default'        => astra_get_option( 'astra-slider-banner-'. $base .'-image' ),
 							'type'           => 'control',
 							'control'        => 'image',
 							'section'        => 'section-slide-'. $base .'-contents',
 							'priority'       => 10,
-							'title'          => __( 'Slide Background Image', 'astra-slider' ),
+							'title'          => __( 'Banner Background Image', 'astra-slider' ),
 							'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 						),
 
@@ -76,12 +74,12 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 						 * Option: Slide Heading
 						 */
 						array(
-							'name'     => 'astra-slider-banner-'. $base .'-heading',
+							'name'     => ASTRA_THEME_SETTINGS . '[astra-slider-banner-'. $base .'-heading]',
 							'default'  => astra_get_option( 'astra-slider-banner-'. $base .'-heading' ),
 							'type'     => 'control',
 							'section'  => 'section-slide-'. $base .'-contents',
 							'priority' => 15,
-							'title'    => __( 'Slide Heading', 'astra-slider' ),
+							'title'    => __( 'Banner Heading', 'astra-slider' ),
 							'control'  => 'text',
 						),
 
@@ -89,22 +87,22 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 						 * Option: Slide Description
 						 */
 						array(
-							'name'      => 'astra-slider-banner-'. $base .'-subheading',
+							'name'      => ASTRA_THEME_SETTINGS . '[astra-slider-banner-'. $base .'-subheading]',
 							'default'   => astra_get_option( 'astra-slider-banner-'. $base .'-subheading' ),
 							'type'      => 'control',
 							'control'   => 'textarea',
 							'section'   => 'section-slide-'. $base .'-contents',
 							'priority'  => 20,
 							'description' => __( 'Custom Text / HTML allowed.', 'astra-slider' ),
-							'title'     => __( 'Slide Description', 'astra' ),
+							'title'     => __( 'Banner Description', 'astra' ),
 						),
 					);
 
-					$_config = array_merge( $configurations, $_config );
+					$configurations = array_merge( $configurations, ${"ast_slide_$base"} );
 				}
 			}
 
-			return array_merge( $configurations, $_config );
+			return $configurations;
 		}
 	}
 

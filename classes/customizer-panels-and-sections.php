@@ -67,13 +67,15 @@ if ( ! class_exists( 'Astra_Slider_Panels_Configs' ) ) {
 				),
 			);
 
+			$configurations = array_merge( $configurations, $_config );
+
 			$ast_hompage_slide_count = apply_filters( 'ast_hompage_slide_count', 3 );
 
 			if( $ast_hompage_slide_count ) {
 
 				for( $base = 1; $base <= $ast_hompage_slide_count; $base++ ) {
 
-					$_config = array(
+					${"ast_slide_$base"} = array(
 						array(
 							'name'     => 'section-slide-'. $base .'-contents',
 							'type'     => 'section',
@@ -84,11 +86,11 @@ if ( ! class_exists( 'Astra_Slider_Panels_Configs' ) ) {
 						),
 					);
 
-					$_config = array_merge( $configurations, $_config );
+					$configurations = array_merge( $configurations, ${"ast_slide_$base"} );
 				}
 			}
 
-			return array_merge( $configurations, $_config );
+			return $configurations;
 		}
 	}
 }
