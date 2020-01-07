@@ -73,17 +73,16 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 		 */
 		public function theme_defaults( $defaults ) {
 
-			$defaults['astra-slider-banner-1-heading']     	= 		__( 'Perfect Theme for Any Website', 'astra-slider' );
-			$defaults['astra-slider-banner-1-subheading']  	= 		__( 'Lightning Fast & Easily Customizable', 'astra-slider' );
-			$defaults['astra-slider-banner-1-image']     	= 		ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg';
+			$ast_hompage_slide_count = apply_filters( 'ast_hompage_slide_count', 3 );
 
-			$defaults['astra-slider-banner-2-heading']     	= 		__( 'Perfect Theme for Any Website', 'astra-slider' );
-			$defaults['astra-slider-banner-2-subheading']  	= 		__( 'Lightning Fast & Easily Customizable', 'astra-slider' );
-			$defaults['astra-slider-banner-2-image']     	= 		ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg';
+			if( $ast_hompage_slide_count ) {
 
-			$defaults['astra-slider-banner-3-heading']     	= 		__( 'Perfect Theme for Any Website', 'astra-slider' );
-			$defaults['astra-slider-banner-3-subheading']  	= 		__( 'Lightning Fast & Easily Customizable', 'astra-slider' );
-			$defaults['astra-slider-banner-3-image']     	= 		ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg';
+				for( $base = 1; $base <= $ast_hompage_slide_count; $base++ ) {
+					$defaults['astra-slider-banner-' . $base . '-heading']     		= 		__( 'Perfect Theme for Any Website', 'astra-slider' );
+					$defaults['astra-slider-banner-' . $base . '-subheading']  		= 		__( 'Lightning Fast & Easily Customizable', 'astra-slider' );
+					$defaults['astra-slider-banner-' . $base . '-image']     		= 		ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg';
+				}
+			}
 
 			return $defaults;
 		}
