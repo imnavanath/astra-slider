@@ -84,6 +84,11 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 				}
 			}
 
+			$defaults['slider-to-top-icon-color']      = '';
+			$defaults['slider-to-top-icon-h-color']    = '';
+			$defaults['slider-to-top-icon-bg-color']   = '';
+			$defaults['slider-to-top-icon-h-bg-color'] = '';
+
 			return $defaults;
 		}
 

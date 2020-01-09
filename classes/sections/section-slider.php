@@ -102,6 +102,100 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 				}
 			}
 
+			$_configs = array(
+
+				/**
+				 * Option: Scroll On Top Colors Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[slider-on-top-color-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-slide-design',
+					'title'    => __( 'Colors', 'astra-addon' ),
+					'settings' => array(),
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
+					'default'   => astra_get_option( 'astra-slider-color-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Icon', 'astra-addon' ),
+					'section'   => 'section-slide-design',
+					'transport' => 'postMessage',
+				),
+
+				/**
+				 * Option: Icon Color
+				 */
+				array(
+					'name'      => 'slider-to-top-icon-color',
+					'default'   => '',
+					'type'      => 'sub-control',
+					'priority'  => 1,
+					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
+					'section'   => 'section-slide-design',
+					'tab'       => __( 'Normal', 'astra-addon' ),
+					'control'   => 'ast-color',
+					'transport' => 'postMessage',
+					'title'     => __( 'Icon Color', 'astra-addon' ),
+				),
+
+				// Check Astra_Control_Color is exist in the theme.
+				/**
+				 * Option: Icon Background Color
+				 */
+				array(
+					'name'      => 'slider-to-top-icon-bg-color',
+					'default'   => '',
+					'type'      => 'sub-control',
+					'priority'  => 1,
+					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
+					'section'   => 'section-slide-design',
+					'tab'       => __( 'Normal', 'astra-addon' ),
+					'transport' => 'postMessage',
+					'control'   => 'ast-color',
+					'title'     => __( 'Background Color', 'astra-addon' ),
+				),
+
+				/**
+				 * Option: Icon Hover Color
+				 */
+				array(
+					'name'      => 'slider-to-top-icon-h-color',
+					'default'   => '',
+					'type'      => 'sub-control',
+					'priority'  => 1,
+					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
+					'section'   => 'section-slide-design',
+					'tab'       => __( 'Hover', 'astra-addon' ),
+					'control'   => 'ast-color',
+					'transport' => 'postMessage',
+					'title'     => __( 'Icon Color', 'astra-addon' ),
+				),
+
+				// Check Astra_Control_Color is exist in the theme.
+				/**
+				 * Option: Link Hover Background Color
+				 */
+
+				array(
+					'name'      => 'slider-to-top-icon-h-bg-color',
+					'default'   => '',
+					'type'      => 'sub-control',
+					'priority'  => 1,
+					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
+					'section'   => 'section-slide-design',
+					'tab'       => __( 'Hover', 'astra-addon' ),
+					'control'   => 'ast-color',
+					'transport' => 'postMessage',
+					'title'     => __( 'Background Color', 'astra-addon' ),
+				),
+			);
+
+			$configurations = array_merge( $configurations, $_configs );
+
 			return $configurations;
 		}
 	}
