@@ -112,7 +112,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-slide-design',
-					'title'    => __( 'Colors', 'astra-addon' ),
+					'title'    => __( 'Colors', 'astra-slider' ),
 					'settings' => array(),
 				),
 
@@ -121,7 +121,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 					'default'   => astra_get_option( 'astra-slider-color-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Icon', 'astra-addon' ),
+					'title'     => __( 'Color', 'astra-slider' ),
 					'section'   => 'section-slide-design',
 					'transport' => 'postMessage',
 				),
@@ -136,10 +136,10 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 					'priority'  => 1,
 					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
 					'section'   => 'section-slide-design',
-					'tab'       => __( 'Normal', 'astra-addon' ),
+					'tab'       => __( 'Normal', 'astra-slider' ),
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
-					'title'     => __( 'Icon Color', 'astra-addon' ),
+					'title'     => __( 'Icon Color', 'astra-slider' ),
 				),
 
 				// Check Astra_Control_Color is exist in the theme.
@@ -153,10 +153,10 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 					'priority'  => 1,
 					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
 					'section'   => 'section-slide-design',
-					'tab'       => __( 'Normal', 'astra-addon' ),
+					'tab'       => __( 'Normal', 'astra-slider' ),
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
-					'title'     => __( 'Background Color', 'astra-addon' ),
+					'title'     => __( 'Background Color', 'astra-slider' ),
 				),
 
 				/**
@@ -169,10 +169,10 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 					'priority'  => 1,
 					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
 					'section'   => 'section-slide-design',
-					'tab'       => __( 'Hover', 'astra-addon' ),
+					'tab'       => __( 'Hover', 'astra-slider' ),
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
-					'title'     => __( 'Icon Color', 'astra-addon' ),
+					'title'     => __( 'Icon Color', 'astra-slider' ),
 				),
 
 				// Check Astra_Control_Color is exist in the theme.
@@ -187,10 +187,67 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 					'priority'  => 1,
 					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
 					'section'   => 'section-slide-design',
-					'tab'       => __( 'Hover', 'astra-addon' ),
+					'tab'       => __( 'Hover', 'astra-slider' ),
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
-					'title'     => __( 'Background Color', 'astra-addon' ),
+					'title'     => __( 'Background Color', 'astra-slider' ),
+				),
+
+				/**
+				 * Option: Button Padding Section
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-slider-container-padding-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-slide-design',
+					'title'    => __( 'Slide Dimensions', 'astra-slider' ),
+					'priority' => 10,
+					'settings' => array(),
+				),
+
+				/**
+				 * Option: Submenu Container Animation
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[slider-image-size-option]',
+					'default'  => astra_get_option( 'slider-image-size-option' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'section'  => 'section-slide-design',
+					'priority' => 15,
+					'title'    => __( 'Slide Size', 'astra-slider' ),
+					'choices'  => array(
+						'' 	          => __( 'Full Screen', 'astra-slider' ),
+						'custom-size' => __( 'Custom Size', 'astra-slider' ),
+					),
+				),
+
+				/**
+				 * Option: Theme Button Padding
+				 */
+				array(
+					'name'           => ASTRA_THEME_SETTINGS . '[ast-slider-container-padding]',
+					'default'        => astra_get_option( 'ast-slider-container-padding' ),
+					'type'           => 'control',
+					'control'        => 'ast-responsive-spacing',
+					'section'        => 'section-slide-design',
+					'title'          => __( 'Padding for Banner Slides', 'astra-slider' ),
+					'linked_choices' => true,
+					'required' => array(
+						ASTRA_THEME_SETTINGS . '[slider-image-size-option]',
+						'!=',
+						'',
+					),
+					'transport'      => 'postMessage',
+					'unit_choices'   => array( 'px', 'em', '%' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'astra-slider' ),
+						'right'  => __( 'Right', 'astra-slider' ),
+						'bottom' => __( 'Bottom', 'astra-slider' ),
+						'left'   => __( 'Left', 'astra-slider' ),
+					),
+					'priority'       => 20,
 				),
 			);
 

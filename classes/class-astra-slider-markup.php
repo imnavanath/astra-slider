@@ -21,16 +21,16 @@
  * @subpackage Astra_Slider/classes
  * @author     Brainstorm Force <support@bsf.io>
  */
-if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
+if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 
-	class Astra_Slider_Loader {
+	class Astra_Slider_Markup {
 
 		/**
 		 * The unique instance of the plugin.
 		 *
 		 * @since    1.0.0
 		 * @access   private
-		 * @var      Astra_Slider_Loader    $instance    Maintains Instance in a variable.
+		 * @var      Astra_Slider_Markup    $instance    Maintains Instance in a variable.
 		 */
 		private static $instance;
 
@@ -63,7 +63,6 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 			add_action( 'astra_header_after', array( $this, 'load_astra_slider_markup' ), 0 );
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_astra_slider_scripts' ), 9 );
-
 		}
 
 		/**
@@ -79,7 +78,7 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 				return;
 			}
 
-			$classes[] = 'ast-slider-' . ASTRA_SLIDER_VERSION;
+			$classes[] = 'astra-slider-' . ASTRA_SLIDER_VERSION;
 
 			return $classes;
 		}
@@ -98,18 +97,63 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 			}
 
 			if( is_front_page() ) {
-				$banner_heading 	= astra_get_option('astra-slider-banner-heading');
-				$banner_subheading 	= astra_get_option('astra-slider-banner-subheading');
-				$home_page_banner_size 	= astra_get_option('banner-image-size-option');
+
+				$ast_hompage_slide_count = apply_filters( 'ast_hompage_slide_count', 3 );
+
+				$home_page_banner_size 	= astra_get_option('slider-image-size-option');
 
 				// Full Screen.
-				$full_screen = ( 'full-size' == $home_page_banner_size ) ? ' ast-full-home-page-banner' : '';
+				$full_screen = ( 'custom-size' != $home_page_banner_size ) ? ' ast-full-home-page-ast-slider' : '';
 
-				$html = '<div class="home-page-banner'.$full_screen.'">' .
-							'<div class="heading-container">' .
-								'<h2 class="banner-heading">' . $banner_heading . '</h2>' .
-								'<h3 class="banner-subheading">' . $banner_subheading . '</h3>' .
+				$slider_markup = '';
+
+				$slick_options = array(
+					'slidesToShow'   => 2,
+					'slidesToScroll' => 1,
+					'autoplaySpeed'  => 2000,
+					'autoplay'       => 'yes',
+					'infinite'       => 'yes',
+					'pauseOnHover'   => 'yes',
+					'speed'          => 500,
+					'arrows'         => true,
+					'dots'           => true,
+					'prevArrow'      => '<button type="button" data-role="none" class="slick-prev slick-arrow fa fa-angle-left" aria-label="Previous" role="button"></button>',
+					'nextArrow'      => '<button type="button" data-role="none" class="slick-next slick-arrow fa fa-angle-right" aria-label="Next" role="button"></button>',
+				);
+
+				// Ast-Slider configuration
+
+				$dots 				= 		'true';
+				$arrows 			= 		'true';
+				$autoplay 			= 		'true';
+				$autoplay_interval 	= 		2000;
+				$speed 				= 		300;
+				$fade 				= 		'false';
+				$rtl               	= 		'';
+
+				$slider_conf = compact( 'dots', 'arrows', 'autoplay', 'autoplay_interval', 'fade','speed', 'rtl' );
+
+				if( $ast_hompage_slide_count ) {
+
+					for( $base = 1; $base <= $ast_hompage_slide_count; $base++ ) {
+
+						${"banner_heading_$base"} 			= 		astra_get_option( 'astra-slider-banner-' . $base . '-heading' );
+						${"banner_subheading_$base"} 		= 		astra_get_option( 'astra-slider-banner-' . $base . '-subheading' );
+						${"banner_image_$base"} 			= 		astra_get_option( 'astra-slider-banner-' . $base . '-image' );
+
+						$slider_markup .= '<div class="ast-single-slide">' .
+								'<div class="ast-slide-content">' .
+									'<h2 class="banner-heading">' . ${"banner_heading_$base"} . '</h2>' .
+									'<h3 class="banner-subheading">' . ${"banner_subheading_$base"} . '</h3>' .
+								'</div> </div>';
+					}
+				}
+
+				$html = '<div class="ast-slider-wrapper">' .
+							'<div id="ast-slides-container" class="home-page-ast-slider' . $full_screen . '">' .
+								$slider_markup .
 							'</div>' .
+							'<div class="ast-slider-config" data-slide_conf="' . htmlspecialchars( json_encode( $slider_conf ) ) . '"></div>' .
 						'</div>';
 				echo $html;
 			}
@@ -127,8 +171,15 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 			}
 
 			if( is_front_page() ) {
-				wp_enqueue_style( 'home-page-banner-css', ASTRA_SLIDER_BASE_URL . 'assets/css/astra-slider-style.css', array(), ASTRA_SLIDER_VERSION );
-				wp_enqueue_script( 'home-page-banner-js', ASTRA_SLIDER_BASE_URL . 'assets/js/astra-slider-script.js', array( 'jquery' ), ASTRA_SLIDER_VERSION );
+
+				// Slick Style & Scripts.
+				wp_enqueue_style( 'slick-css', ASTRA_SLIDER_BASE_URL . 'assets/css/slick.css', array(), ASTRA_SLIDER_VERSION );
+				wp_enqueue_style( 'slick-theme-css', ASTRA_SLIDER_BASE_URL . 'assets/css/slick-theme.css', array(), ASTRA_SLIDER_VERSION );
+				wp_enqueue_script( 'slick-js', ASTRA_SLIDER_BASE_URL . 'assets/js/slick.js', array( 'jquery' ), ASTRA_SLIDER_VERSION, true );
+
+				// Astra Slider styles & scripts.
+				wp_enqueue_style( 'ast-slider-css', ASTRA_SLIDER_BASE_URL . 'assets/css/astra-slider-style.css', array(), ASTRA_SLIDER_VERSION );
+				wp_enqueue_script( 'ast-slider-js', ASTRA_SLIDER_BASE_URL . 'assets/js/astra-slider-script.js', array( 'jquery', 'slick-js' ), ASTRA_SLIDER_VERSION );
 			}
 		}
 	}
@@ -137,5 +188,5 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 	 *  Prepare if class 'Astra_Slider' exist.
 	 *  Kicking this off by calling 'get_instance()' method
 	 */
-	Astra_Slider_Loader::get_instance();
+	Astra_Slider_Markup::get_instance();
 }
