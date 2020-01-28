@@ -58,10 +58,7 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 		public function __construct() {
 
 			add_filter( 'body_class', array( $this, 'body_classes' ), 10, 1 );
-
-			// After Headers action.
 			add_action( 'astra_header_after', array( $this, 'load_astra_slider_markup' ), 0 );
-
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_astra_slider_scripts' ), 9 );
 		}
 
@@ -137,14 +134,16 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 
 					for( $base = 1; $base <= $ast_hompage_slide_count; $base++ ) {
 
+						${"banner_pre_heading_$base"} 		= 		astra_get_option( 'astra-slider-banner-' . $base . '-pre-heading' );
 						${"banner_heading_$base"} 			= 		astra_get_option( 'astra-slider-banner-' . $base . '-heading' );
 						${"banner_subheading_$base"} 		= 		astra_get_option( 'astra-slider-banner-' . $base . '-subheading' );
 						${"banner_image_$base"} 			= 		astra_get_option( 'astra-slider-banner-' . $base . '-image' );
 
 						$slider_markup .= '<div class="ast-single-slide">' .
 								'<div class="ast-slide-content">' .
+									'<h6 class="banner-pre-heading">' . ${"banner_pre_heading_$base"} . '</h6>' .
 									'<h2 class="banner-heading">' . ${"banner_heading_$base"} . '</h2>' .
-									'<h3 class="banner-subheading">' . ${"banner_subheading_$base"} . '</h3>' .
+									'<p class="banner-subheading">' . ${"banner_subheading_$base"} . '</p>' .
 								'</div> </div>';
 					}
 				}

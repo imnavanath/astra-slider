@@ -78,7 +78,8 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 			if( $ast_hompage_slide_count ) {
 
 				for( $base = 1; $base <= $ast_hompage_slide_count; $base++ ) {
-					$defaults['astra-slider-banner-' . $base . '-heading']     		= 		__( 'Perfect Theme for Any Website', 'astra-slider' );
+                    $defaults['astra-slider-banner-' . $base . '-pre-heading']     	= 		__( 'Prefix Title', 'astra-slider' );
+                    $defaults['astra-slider-banner-' . $base . '-heading']     		= 		__( 'Perfect Theme for Any Website', 'astra-slider' );
 					$defaults['astra-slider-banner-' . $base . '-subheading']  		= 		__( 'Lightning Fast & Easily Customizable', 'astra-slider' );
 					$defaults['astra-slider-banner-' . $base . '-image']     		= 		ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg';
 				}
@@ -111,7 +112,58 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 			$defaults['slider-to-top-icon-color']      = '';
 			$defaults['slider-to-top-icon-h-color']    = '';
 			$defaults['slider-to-top-icon-bg-color']   = '';
-			$defaults['slider-to-top-icon-h-bg-color'] = '';
+            $defaults['slider-to-top-icon-h-bg-color'] = '';
+
+            /**
+             * Prefix Typography Config
+             */
+            $defaults['slider-pre-heading-font-weight']    = 'inherit';
+            $defaults['slider-pre-heading-font-family']    = 'inherit';
+            $defaults['slider-pre-heading-font-size']      = array(
+                'desktop'      => '',
+                'tablet'       => '',
+                'mobile'       => '',
+                'desktop-unit' => 'px',
+                'tablet-unit'  => 'px',
+                'mobile-unit'  => 'px',
+            );
+            $defaults['slider-pre-heading-text-transform'] = '';
+            $defaults['slider-pre-heading-line-height']    = 1;
+            $defaults['slider-pre-heading-letter-spacing'] = '';
+
+            /**
+             * Heading Typography Config
+             */
+            $defaults['slider-heading-font-weight']    = 'inherit';
+            $defaults['slider-heading-font-family']    = 'inherit';
+            $defaults['slider-heading-font-size']      = array(
+                'desktop'      => '',
+                'tablet'       => '',
+                'mobile'       => '',
+                'desktop-unit' => 'px',
+                'tablet-unit'  => 'px',
+                'mobile-unit'  => 'px',
+            );
+            $defaults['slider-heading-text-transform'] = '';
+            $defaults['slider-heading-line-height']    = 1;
+            $defaults['slider-heading-letter-spacing'] = '';
+
+            /**
+             * Description Typography Config
+             */
+            $defaults['slider-description-font-weight']    = 'inherit';
+            $defaults['slider-description-font-family']    = 'inherit';
+            $defaults['slider-description-font-size']      = array(
+                'desktop'      => '',
+                'tablet'       => '',
+                'mobile'       => '',
+                'desktop-unit' => 'px',
+                'tablet-unit'  => 'px',
+                'mobile-unit'  => 'px',
+            );
+            $defaults['slider-description-text-transform'] = '';
+            $defaults['slider-description-line-height']    = 1;
+            $defaults['slider-description-letter-spacing'] = '';
 
 			return $defaults;
 		}
@@ -166,7 +218,17 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 		 * @since      1.0.0
 		 */
 		public function add_fonts() {
+            $slider_prefix_font_family = astra_get_option( 'slider-pre-heading-font-family' );
+		    $slider_prefix_font_weight = astra_get_option( 'slider-pre-heading-font-weight' );
+            Astra_Fonts::add_font( $slider_prefix_font_family, $slider_prefix_font_weight );
 
+            $slider_heading_font_family = astra_get_option( 'slider-heading-font-family' );
+		    $slider_heading_font_weight = astra_get_option( 'slider-heading-font-weight' );
+            Astra_Fonts::add_font( $slider_heading_font_family, $slider_heading_font_weight );
+
+            $slider_description_font_family = astra_get_option( 'slider-description-font-family' );
+		    $slider_description_font_weight = astra_get_option( 'slider-description-font-weight' );
+		    Astra_Fonts::add_font( $slider_description_font_family, $slider_description_font_weight );
 		}
 	}
 
