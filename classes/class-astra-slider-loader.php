@@ -78,10 +78,21 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 			if( $ast_hompage_slide_count ) {
 
 				for( $base = 1; $base <= $ast_hompage_slide_count; $base++ ) {
-                    $defaults['astra-slider-banner-' . $base . '-pre-heading']     	= 		__( 'Prefix Title', 'astra-slider' );
+
+					// Ast-Slide Content config.
+					$defaults['astra-slider-banner-' . $base . '-pre-heading']     	= 		__( 'Prefix Title', 'astra-slider' );
                     $defaults['astra-slider-banner-' . $base . '-heading']     		= 		__( 'Perfect Theme for Any Website', 'astra-slider' );
 					$defaults['astra-slider-banner-' . $base . '-subheading']  		= 		__( 'Lightning Fast & Easily Customizable', 'astra-slider' );
-					$defaults['astra-slider-banner-' . $base . '-image']     		= 		ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg';
+
+					// Ast-Slide Image config.
+					$defaults['ast-slide-' . $base . '-bg-obj']  = array(
+						'background-color'      => '',
+						'background-image'      => ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg',
+						'background-repeat'     => 'repeat',
+						'background-position'   => 'center center',
+						'background-size'       => 'auto',
+						'background-attachment' => 'scroll',
+					);
 				}
 			}
 

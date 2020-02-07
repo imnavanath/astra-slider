@@ -137,7 +137,6 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 						${"banner_pre_heading_$base"} 		= 		astra_get_option( 'astra-slider-banner-' . $base . '-pre-heading' );
 						${"banner_heading_$base"} 			= 		astra_get_option( 'astra-slider-banner-' . $base . '-heading' );
 						${"banner_subheading_$base"} 		= 		astra_get_option( 'astra-slider-banner-' . $base . '-subheading' );
-						${"banner_image_$base"} 			= 		astra_get_option( 'astra-slider-banner-' . $base . '-image' );
 
 						$slider_markup .= '<div class="ast-single-slide">' .
 								'<div class="ast-slide-content">' .

@@ -57,20 +57,6 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 						),
 
 						/**
-						 * Option: Slide image selector
-						 */
-						array(
-							'name'           => ASTRA_THEME_SETTINGS . '[astra-slider-banner-'. $base .'-image]',
-							'default'        => astra_get_option( 'astra-slider-banner-'. $base .'-image' ),
-							'type'           => 'control',
-							'control'        => 'image',
-							'section'        => 'section-slide-'. $base .'-contents',
-							'priority'       => 10,
-							'title'          => __( 'Banner Background Image', 'astra-slider' ),
-							'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-						),
-
-						/**
 						 * Option: Slide Heading Prefix
 						 */
 						array(
@@ -108,6 +94,46 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 							'priority'  => 25,
 							'description' => __( 'Custom Text / HTML allowed.', 'astra-slider' ),
 							'title'     => __( 'Banner Description', 'astra-slider' ),
+						),
+
+						/**
+						 * Option: Slide Above Divider
+						 */
+						array(
+							'name'            => ASTRA_THEME_SETTINGS . '[ast-slider-styling-slide-' . $base . '-divider]',
+							'type'            => 'control',
+							'control'         => 'ast-heading',
+							'section'         => 'section-slide-'. $base .'-contents',
+							'title'           => __( 'Colors & Background', 'astra-slider' ),
+							'priority'        => 30,
+						),
+
+						/**
+						 * Option: Slider BG Content Group
+						 */
+						array(
+							'name'      => ASTRA_THEME_SETTINGS . '[ast-slide-' . $base . '-background-group]',
+							'default'   => astra_get_option( 'ast-slide-' . $base . '-background-group' ),
+							'type'      => 'control',
+							'control'   => 'ast-settings-group',
+							'title'     => __( 'Background', 'astra-slider' ),
+							'section'   => 'section-slide-'. $base .'-contents',
+							'transport' => 'postMessage',
+							'priority'  => 35,
+						),
+
+						/**
+						 * Option: Slider Background
+						 */
+						array(
+							'name'     => 'ast-slide-' . $base . '-bg-obj',
+							'type'     => 'sub-control',
+							'priority' => 40,
+							'parent'   => ASTRA_THEME_SETTINGS . '[ast-slide-' . $base . '-background-group]',
+							'section'  => 'section-slide-'. $base .'-contents',
+							'control'  => 'ast-background',
+							'default'  => astra_get_option( 'ast-slide-' . $base . '-bg-obj' ),
+							'label'    => __( 'Background', 'astra-slider' ),
 						),
 					);
 

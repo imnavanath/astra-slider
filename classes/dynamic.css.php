@@ -30,18 +30,33 @@ function astra_slider_dynamic_css() {
 
 	$slider_desktop_css = array(
 
-		// Banner CSS.
+		// Slider Content CSS.
 		'.home-page-ast-slider .ast-single-slide .banner-heading' => array(
 		),
 		'.home-page-ast-slider .ast-single-slide .banner-subheading' => array(
 		),
-		'.home-page-ast-slider' => array(
-			'background-image'    	=> 'url(' . esc_url( $banner_image ) . ')',
-			'background-repeat'   	=> esc_attr( 'repeat' ),
-			'background-size'     	=> esc_attr( 'cover' ),
-			'background-position' 	=> esc_attr( 'center center' ),
-		),
 	);
+
+	$ast_hompage_slide_count = apply_filters( 'ast_hompage_slide_count', 3 );
+
+	if( $ast_hompage_slide_count ) {
+
+		for( $base = 1; $base <= $ast_hompage_slide_count; $base++ ) {
+
+			// Slide Background Options.
+			${"ast_slide_bg_styles_$base"}      = 		astra_get_option( 'ast-slide-' . $base . '-bg-obj' );
+
+			$desktop_style = array(
+				'.home-page-ast-slider'     	=> 		astra_get_responsive_background_obj( ${"ast_slide_bg_styles_$base"}, 'desktop' ),
+			);
+
+			// $slider_banner_css = array(
+			// 	'.home-page-ast-slider' => astra_get_background_obj( ${"ast_slide_bg_styles_$base"} ),
+			// );
+
+			$slider_desktop_css = array_merge( $slider_desktop_css, $desktop_style );
+		}
+	}
 
 	if ( 'custom-size' == $background_size ) {
 		$slider_banner_css = array(
@@ -68,6 +83,8 @@ function astra_slider_dynamic_css() {
 				'padding-bottom' => astra_responsive_spacing( $slider_container_padding, 'bottom', 'tablet' ),
 				'padding-left'   => astra_responsive_spacing( $slider_container_padding, 'left', 'tablet' ),
 			),
+
+			'.home-page-ast-slider'      => 	astra_get_responsive_background_obj( ${"ast_slide_bg_styles_$base"}, 'tablet' ),
 		);
 
 		/* Parse CSS from array() */
@@ -80,6 +97,8 @@ function astra_slider_dynamic_css() {
 				'padding-bottom' => astra_responsive_spacing( $slider_container_padding, 'bottom', 'mobile' ),
 				'padding-left'   => astra_responsive_spacing( $slider_container_padding, 'left', 'mobile' ),
 			),
+
+			'.home-page-ast-slider'       => 	astra_get_responsive_background_obj( ${"ast_slide_bg_styles_$base"}, 'mobile' ),
 		);
 
 		/* Parse CSS from array() */
