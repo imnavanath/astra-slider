@@ -120,10 +120,9 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 				'mobile-unit'  => 'px',
 			);
 
-			$defaults['slider-to-top-icon-color']      = '';
-			$defaults['slider-to-top-icon-h-color']    = '';
-			$defaults['slider-to-top-icon-bg-color']   = '';
-            $defaults['slider-to-top-icon-h-bg-color'] = '';
+			$defaults['slider-centent-prefix-color']      = '';
+			$defaults['slider-centent-heading-color']   = '';
+			$defaults['slider-centent-description-color']   = '';
 
             /**
              * Prefix Typography Config
@@ -139,7 +138,7 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
                 'mobile-unit'  => 'px',
             );
             $defaults['slider-pre-heading-text-transform'] = '';
-            $defaults['slider-pre-heading-line-height']    = 1;
+            $defaults['slider-pre-heading-line-height']    = '';
             $defaults['slider-pre-heading-letter-spacing'] = '';
 
             /**
@@ -156,7 +155,7 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
                 'mobile-unit'  => 'px',
             );
             $defaults['slider-heading-text-transform'] = '';
-            $defaults['slider-heading-line-height']    = 1;
+            $defaults['slider-heading-line-height']    = '';
             $defaults['slider-heading-letter-spacing'] = '';
 
             /**
@@ -173,7 +172,7 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
                 'mobile-unit'  => 'px',
             );
             $defaults['slider-description-text-transform'] = '';
-            $defaults['slider-description-line-height']    = 1;
+            $defaults['slider-description-line-height']    = '';
             $defaults['slider-description-letter-spacing'] = '';
 
 			return $defaults;

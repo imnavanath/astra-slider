@@ -209,7 +209,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => 'section-slide-design',
 					'priority' => 20,
-					'title'    => __( 'Colors & Background', 'astra-slider' ),
+					'title'    => __( 'Colors', 'astra-slider' ),
 					'settings' => array(),
 				),
 
@@ -218,74 +218,55 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 					'default'   => astra_get_option( 'astra-slider-color-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Color', 'astra-slider' ),
+					'title'     => __( 'Colors', 'astra-slider' ),
 					'section'   => 'section-slide-design',
 					'priority' 	=> 25,
 					'transport' => 'postMessage',
 				),
 
 				/**
-				 * Option: Icon Color
+				 * Option: Prefix Color
 				 */
 				array(
-					'name'      => 'slider-to-top-icon-color',
+					'name'      => 'slider-centent-prefix-color',
 					'default'   => '',
 					'type'      => 'sub-control',
 					'priority'  => 1,
 					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
 					'section'   => 'section-slide-design',
-					'tab'       => __( 'Normal', 'astra-slider' ),
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
-					'title'     => __( 'Icon Color', 'astra-slider' ),
+					'title'     => __( 'Prefix Color', 'astra-slider' ),
 				),
 
 				/**
-				 * Option: Icon Background Color
+				 * Option: Heading Color
 				 */
 				array(
-					'name'      => 'slider-to-top-icon-bg-color',
+					'name'      => 'slider-centent-heading-color',
 					'default'   => '',
 					'type'      => 'sub-control',
 					'priority'  => 1,
 					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
 					'section'   => 'section-slide-design',
-					'tab'       => __( 'Normal', 'astra-slider' ),
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
-					'title'     => __( 'Background Color', 'astra-slider' ),
+					'title'     => __( 'Heading Color', 'astra-slider' ),
 				),
 
 				/**
-				 * Option: Icon Hover Color
+				 * Option: Description Color
 				 */
 				array(
-					'name'      => 'slider-to-top-icon-h-color',
+					'name'      => 'slider-centent-description-color',
 					'default'   => '',
 					'type'      => 'sub-control',
 					'priority'  => 1,
 					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
 					'section'   => 'section-slide-design',
-					'tab'       => __( 'Hover', 'astra-slider' ),
-					'control'   => 'ast-color',
 					'transport' => 'postMessage',
-					'title'     => __( 'Icon Color', 'astra-slider' ),
-				),
-
-				/**
-				 * Option: Link Hover Background Color
-				 */
-				array(
-					'name'      => 'slider-to-top-icon-h-bg-color',
-					'default'   => '',
-					'type'      => 'sub-control',
-					'priority'  => 1,
-					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
-					'section'   => 'section-slide-design',
-					'tab'       => __( 'Hover', 'astra-slider' ),
 					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'title'     => __( 'Background Color', 'astra-slider' ),
+					'title'     => __( 'Description Color', 'astra-slider' ),
 				),
 
 				/**

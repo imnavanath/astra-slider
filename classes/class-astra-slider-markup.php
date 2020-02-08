@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 				return;
 			}
 
-			if( is_front_page() ) {
+			if( apply_filters( 'ast_slider_enabled_on', is_front_page() ) ) {
 
 				$ast_hompage_slide_count = apply_filters( 'ast_hompage_slide_count', 3 );
 
