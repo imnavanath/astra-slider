@@ -138,12 +138,22 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 						${"banner_heading_$base"} 			= 		astra_get_option( 'astra-slider-banner-' . $base . '-heading' );
 						${"banner_subheading_$base"} 		= 		astra_get_option( 'astra-slider-banner-' . $base . '-subheading' );
 
+						$slide_btn_1_text 	= astra_get_option('slide-'. $base .'-cta-1-text');
+						$slide_btn_1_link 	= astra_get_option('slide-'. $base .'-cta-1-link');
+
+						$slide_btn_2_text 	= astra_get_option('slide-'. $base .'-cta-2-text');
+						$slide_btn_2_link 	= astra_get_option('slide-'. $base .'-cta-2-link');
+
 						$slider_markup .= '<div class="ast-single-slide">' .
 								'<div class="ast-slide-content">' .
 									'<h6 class="banner-pre-heading">' . ${"banner_pre_heading_$base"} . '</h6>' .
 									'<h2 class="banner-heading">' . ${"banner_heading_$base"} . '</h2>' .
 									'<p class="banner-subheading">' . ${"banner_subheading_$base"} . '</p>' .
-								'</div> </div>';
+								'</div>' .
+								'<div class="ast-slide-cta-wrapper">' .
+									'<a class="ast-slide-button-link" href="' . esc_url( $slide_btn_1_link ) . '"><button class="ast-button ast-slider-cta-button">' . esc_html( $slide_btn_1_text ) .'</button></a>' .
+									'<a class="ast-slide-button-link ast-slide-second-btn" href="' . esc_url( $slide_btn_2_link ) . '"><button class="ast-button ast-slider-cta-button">' . esc_html( $slide_btn_2_text ) .'</button></a>' .
+								'</div>	</div>';
 					}
 				}
 

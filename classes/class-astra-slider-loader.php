@@ -93,6 +93,17 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 						'background-size'       => 'auto',
 						'background-attachment' => 'scroll',
 					);
+
+					$defaults['slide-'. $base .'-cta-1-text']     	= 		__( 'Read More »', 'astra-slider' );
+					$defaults['slide-'. $base .'-cta-2-text']     	= 		__( 'Let\'s Connect »', 'astra-slider' );
+
+					$defaults['slide-'. $base .'-cta-1-link']    	= 		'#';
+					$defaults['slide-'. $base .'-cta-2-link']     	= 		'#';
+
+					$defaults['slider-button-text-color']      	  	= 		'';
+					$defaults['slider-button-text-hover-color']    	= 		'';
+					$defaults['slider-button-bg-color']   			= 		'';
+					$defaults['slider-button-bg-hover-color'] 		= 		'';
 				}
 			}
 
@@ -173,7 +184,24 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
             );
             $defaults['slider-description-text-transform'] = '';
             $defaults['slider-description-line-height']    = '';
-            $defaults['slider-description-letter-spacing'] = '';
+			$defaults['slider-description-letter-spacing'] = '';
+
+			/**
+             * Buttons Typography Config
+             */
+            $defaults['slider-buttons-font-weight']    = 'inherit';
+            $defaults['slider-buttons-font-family']    = 'inherit';
+            $defaults['slider-buttons-font-size']      = array(
+                'desktop'      => '',
+                'tablet'       => '',
+                'mobile'       => '',
+                'desktop-unit' => 'px',
+                'tablet-unit'  => 'px',
+                'mobile-unit'  => 'px',
+            );
+            $defaults['slider-buttons-text-transform'] = '';
+            $defaults['slider-buttons-line-height']    = '';
+            $defaults['slider-buttons-letter-spacing'] = '';
 
 			return $defaults;
 		}

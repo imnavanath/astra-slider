@@ -97,6 +97,70 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 						),
 
 						/**
+						 * Option: Slide CTA Divider
+						 */
+						array(
+							'name'            => ASTRA_THEME_SETTINGS . '[ast-slider-cta-slide-' . $base . '-divider]',
+							'type'            => 'control',
+							'control'         => 'ast-heading',
+							'section'         => 'section-slide-'. $base .'-contents',
+							'title'           => __( 'Call To Action', 'astra-slider' ),
+							'priority'        => 30,
+						),
+
+						/**
+						 * Option: Button 1
+						 */
+						array(
+							'name'     => ASTRA_THEME_SETTINGS . '[slide-'. $base .'-cta-1-text]',
+							'default'  => astra_get_option( 'slide-'. $base .'-cta-1-text' ),
+							'type'     => 'control',
+							'section'  => 'section-slide-'. $base .'-contents',
+							'priority' => 35,
+							'title'    => __( 'Button 1 Text', 'astra-slider' ),
+							'control'  => 'text',
+						),
+
+						/**
+						* Option: Button 1 Link
+						*/
+						array(
+							'name'     => ASTRA_THEME_SETTINGS . '[slide-'. $base .'-cta-1-link]',
+							'default'  => astra_get_option( 'slide-'. $base .'-cta-1-link' ),
+							'type'     => 'control',
+							'control'  => 'text',
+							'section'  => 'section-slide-'. $base .'-contents',
+							'priority' => 40,
+							'title'    => __( 'Button 1 Link', 'astra-slider' ),
+						),
+
+						/**
+						 * Option: Button 2
+						 */
+						array(
+							'name'     => ASTRA_THEME_SETTINGS . '[slide-'. $base .'-cta-2-text]',
+							'default'  => astra_get_option( 'slide-'. $base .'-cta-2-text' ),
+							'type'     => 'control',
+							'section'  => 'section-slide-'. $base .'-contents',
+							'priority' => 45,
+							'title'    => __( 'Button 2 Text', 'astra-slider' ),
+							'control'  => 'text',
+						),
+
+						/**
+						* Option: Button 2 Link
+						*/
+						array(
+							'name'     => ASTRA_THEME_SETTINGS . '[slide-'. $base .'-cta-2-link]',
+							'default'  => astra_get_option( 'slide-'. $base .'-cta-2-link' ),
+							'type'     => 'control',
+							'control'  => 'text',
+							'section'  => 'section-slide-'. $base .'-contents',
+							'priority' => 50,
+							'title'    => __( 'Button 2 Link', 'astra-slider' ),
+						),
+
+						/**
 						 * Option: Slide Above Divider
 						 */
 						array(
@@ -104,8 +168,8 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 							'type'            => 'control',
 							'control'         => 'ast-heading',
 							'section'         => 'section-slide-'. $base .'-contents',
-							'title'           => __( 'Colors & Background', 'astra-slider' ),
-							'priority'        => 30,
+							'title'           => __( 'Background', 'astra-slider' ),
+							'priority'        => 55,
 						),
 
 						/**
@@ -119,7 +183,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 							'title'     => __( 'Background', 'astra-slider' ),
 							'section'   => 'section-slide-'. $base .'-contents',
 							'transport' => 'postMessage',
-							'priority'  => 35,
+							'priority'  => 60,
 						),
 
 						/**
@@ -128,7 +192,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 						array(
 							'name'     => 'ast-slide-' . $base . '-bg-obj',
 							'type'     => 'sub-control',
-							'priority' => 40,
+							'priority' => 55,
 							'parent'   => ASTRA_THEME_SETTINGS . '[ast-slide-' . $base . '-background-group]',
 							'section'  => 'section-slide-'. $base .'-contents',
 							'control'  => 'ast-background',
@@ -218,7 +282,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 					'default'   => astra_get_option( 'astra-slider-color-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Colors', 'astra-slider' ),
+					'title'     => __( 'Content', 'astra-slider' ),
 					'section'   => 'section-slide-design',
 					'priority' 	=> 25,
 					'transport' => 'postMessage',
@@ -246,7 +310,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 					'name'      => 'slider-centent-heading-color',
 					'default'   => '',
 					'type'      => 'sub-control',
-					'priority'  => 1,
+					'priority'  => 2,
 					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
 					'section'   => 'section-slide-design',
 					'transport' => 'postMessage',
@@ -261,13 +325,92 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 					'name'      => 'slider-centent-description-color',
 					'default'   => '',
 					'type'      => 'sub-control',
-					'priority'  => 1,
+					'priority'  => 3,
 					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-color-group]',
 					'section'   => 'section-slide-design',
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'title'     => __( 'Description Color', 'astra-slider' ),
 				),
+
+				/**
+				 * Option: Button colors group
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[astra-slider-button-color-group]',
+					'default'   => astra_get_option( 'astra-slider-button-color-group' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Buttons', 'astra-slider' ),
+					'section'   => 'section-slide-design',
+					'priority' 	=> 25,
+					'transport' => 'postMessage',
+				),
+
+				/**
+				 * Option: Text Color
+				 */
+				array(
+					'name'      => 'slider-button-text-color',
+					'default'   => '',
+					'type'      => 'sub-control',
+					'priority'  => 1,
+					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-button-color-group]',
+					'section'   => 'section-slide-design',
+					'tab'       => __( 'Normal', 'astra-slider' ),
+					'control'   => 'ast-color',
+					'transport' => 'postMessage',
+					'title'     => __( 'Text Color', 'astra-slider' ),
+				),
+
+				/**
+				 * Option: Background Color
+				 */
+				array(
+					'name'      => 'slider-button-bg-color',
+					'default'   => '',
+					'type'      => 'sub-control',
+					'priority'  => 1,
+					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-button-color-group]',
+					'section'   => 'section-slide-design',
+					'tab'       => __( 'Normal', 'astra-slider' ),
+					'transport' => 'postMessage',
+					'control'   => 'ast-color',
+					'title'     => __( 'Background Color', 'astra-slider' ),
+				),
+
+				/**
+				 * Option: Text Hover Color
+				 */
+				array(
+					'name'      => 'slider-button-text-hover-color',
+					'default'   => '',
+					'type'      => 'sub-control',
+					'priority'  => 1,
+					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-button-color-group]',
+					'section'   => 'section-slide-design',
+					'tab'       => __( 'Hover', 'astra-slider' ),
+					'control'   => 'ast-color',
+					'transport' => 'postMessage',
+					'title'     => __( 'Text Color', 'astra-slider' ),
+				),
+
+				/**
+				 * Option: Hover Background Color
+				 */
+				array(
+					'name'      => 'slider-button-bg-hover-color',
+					'default'   => '',
+					'type'      => 'sub-control',
+					'priority'  => 1,
+					'parent'    => ASTRA_THEME_SETTINGS . '[astra-slider-button-color-group]',
+					'section'   => 'section-slide-design',
+					'tab'       => __( 'Hover', 'astra-slider' ),
+					'control'   => 'ast-color',
+					'transport' => 'postMessage',
+					'title'     => __( 'Background Color', 'astra-slider' ),
+				),
+
 
 				/**
 				 * Option: Slider Typography
@@ -551,7 +694,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Heading Typography Title
+				 * Option: Description Typography Title
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[slider-description-typography]',
@@ -565,7 +708,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Heading Font Family
+				 * Option: Description Font Family
 				 */
 				array(
 					'name'      => 'slider-description-font-family',
@@ -581,7 +724,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Heading Font Size
+				 * Option: Description Font Size
 				 */
 				array(
 					'name'        => 'slider-description-font-size',
@@ -602,7 +745,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Heading Font Weight
+				 * Option: Description Font Weight
 				 */
 				array(
 					'name'              => 'slider-description-font-weight',
@@ -619,7 +762,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Heading Text Transform
+				 * Option: Description Text Transform
 				 */
 				array(
 					'name'      => 'slider-description-text-transform',
@@ -641,7 +784,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Heading Line Height
+				 * Option: Description Line Height
 				 */
 				array(
 					'name'              => 'slider-description-line-height',
@@ -663,7 +806,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Heading Letter Spacing
+				 * Option: Description Letter Spacing
 				 */
 				array(
 					'name'              => 'slider-description-letter-spacing',
@@ -672,6 +815,140 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 					'type'              => 'sub-control',
 					'default'           => '',
 					'parent'            => ASTRA_THEME_SETTINGS . '[slider-description-typography]',
+					'section'           => 'section-slide-design',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Letter Spacing', 'astra-slider' ),
+					'suffix'            => '',
+					'priority'          => 5,
+					'input_attrs'       => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 100,
+					),
+				),
+
+				/**
+				 * Option: Button Typography
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[slider-buttons-typography]',
+					'default'   => astra_get_option( 'slider-buttons-typography' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Buttons', 'astra-slider' ),
+					'section'   => 'section-slide-design',
+					'transport' => 'postMessage',
+					'priority'  => 45,
+				),
+
+				/**
+				 * Option: Button Font Family
+				 */
+				array(
+					'name'      => 'slider-buttons-font-family',
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[slider-buttons-typography]',
+					'section'   => 'section-slide-design',
+					'control'   => 'ast-font',
+					'font_type' => 'ast-font-family',
+					'title'     => __( 'Family', 'astra-slider' ),
+					'default'   => astra_get_option( 'slider-buttons-font-family' ),
+					'connect'   => ASTRA_THEME_SETTINGS . '[slider-buttons-font-weight]',
+					'priority'  => 1,
+				),
+
+				/**
+				 * Option: Button Font Size
+				 */
+				array(
+					'name'        => 'slider-description-font-size',
+					'transport'   => 'postMessage',
+					'title'       => __( 'Size', 'astra-slider' ),
+					'type'        => 'sub-control',
+					'parent'      => ASTRA_THEME_SETTINGS . '[slider-buttons-typography]',
+					'section'     => 'section-slide-design',
+					'control'     => 'ast-responsive',
+					'default'     => astra_get_option( 'slider-description-font-size' ),
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+				),
+
+				/**
+				 * Option: Button Font Weight
+				 */
+				array(
+					'name'              => 'slider-buttons-font-weight',
+					'type'              => 'sub-control',
+					'parent'            => ASTRA_THEME_SETTINGS . '[slider-buttons-typography]',
+					'section'           => 'section-slide-design',
+					'control'           => 'ast-font',
+					'font_type'         => 'ast-font-weight',
+					'title'             => __( 'Weight', 'astra-slider' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( 'slider-buttons-font-weight' ),
+					'connect'           => 'slider-buttons-font-family',
+					'priority'          => 2,
+				),
+
+				/**
+				 * Option: Button Text Transform
+				 */
+				array(
+					'name'      => 'slider-buttons-text-transform',
+					'transport' => 'postMessage',
+					'default'   => astra_get_option( 'slider-buttons-text-transform' ),
+					'title'     => __( 'Text Transform', 'astra-slider' ),
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[slider-buttons-typography]',
+					'section'   => 'section-slide-design',
+					'control'   => 'ast-select',
+					'priority'  => 3,
+					'choices'   => array(
+						''           => __( 'Inherit', 'astra-slider' ),
+						'none'       => __( 'None', 'astra-slider' ),
+						'capitalize' => __( 'Capitalize', 'astra-slider' ),
+						'uppercase'  => __( 'Uppercase', 'astra-slider' ),
+						'lowercase'  => __( 'Lowercase', 'astra-slider' ),
+					),
+				),
+
+				/**
+				 * Option: Button Line Height
+				 */
+				array(
+					'name'              => 'slider-buttons-line-height',
+					'control'           => 'ast-slider',
+					'transport'         => 'postMessage',
+					'type'              => 'sub-control',
+					'default'           => astra_get_option( 'slider-buttons-line-height' ),
+					'parent'            => ASTRA_THEME_SETTINGS . '[slider-buttons-typography]',
+					'section'           => 'section-slide-design',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Line Height', 'astra-slider' ),
+					'suffix'            => '',
+					'priority'          => 4,
+					'input_attrs'       => array(
+						'min'  => 1,
+						'step' => 0.01,
+						'max'  => 5,
+					),
+				),
+
+				/**
+				 * Option: Button Letter Spacing
+				 */
+				array(
+					'name'              => 'slider-buttons-letter-spacing',
+					'control'           => 'ast-slider',
+					'transport'         => 'postMessage',
+					'type'              => 'sub-control',
+					'default'           => '',
+					'parent'            => ASTRA_THEME_SETTINGS . '[slider-buttons-typography]',
 					'section'           => 'section-slide-design',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Letter Spacing', 'astra-slider' ),
