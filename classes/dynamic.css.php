@@ -61,12 +61,19 @@ function astra_slider_dynamic_css() {
 	$ast_slide_btn_bg_color   			= 		astra_get_option( 'slider-button-bg-color' );
 	$ast_slide_btn_bg_hover_color   	= 		astra_get_option( 'slider-button-bg-hover-color' );
 
-	$ast_slide_btn_font_family    	= 		astra_get_option( 'slider-buttons-font-family' );
-	$ast_slide_btn_font_weight    	= 		astra_get_option( 'slider-buttons-font-weight' );
-	$ast_slide_btn_font_size      	= 		astra_get_option( 'slider-description-font-size' );
-	$ast_slide_btn_line_height    	= 		astra_get_option( 'slider-buttons-line-height' );
-	$ast_slide_btn_text_transform 	= 		astra_get_option( 'slider-buttons-text-transform' );
-	$ast_slide_btn_letter_spacing 	= 		astra_get_option( 'slider-buttons-letter-spacing' );
+	$ast_slide_btn_font_family    		= 		astra_get_option( 'slider-buttons-font-family' );
+	$ast_slide_btn_font_weight    		= 		astra_get_option( 'slider-buttons-font-weight' );
+	$ast_slide_btn_font_size      		= 		astra_get_option( 'slider-description-font-size' );
+	$ast_slide_btn_line_height    		= 		astra_get_option( 'slider-buttons-line-height' );
+	$ast_slide_btn_text_transform 		= 		astra_get_option( 'slider-buttons-text-transform' );
+	$ast_slide_btn_letter_spacing 		= 		astra_get_option( 'slider-buttons-letter-spacing' );
+
+	$ast_slide_button_border_size 		= 		astra_get_option( 'ast-slider-button-border-size' );
+	$ast_slide_button_border_radius		= 		astra_get_option( 'ast-slider-button-border-radius' );
+	$ast_slide_button_border_color      = 		astra_get_option( 'ast-slider-button-border-color' );
+	$ast_slide_button_border_h_color    = 		astra_get_option( 'ast-slider-button-border-hover-color' );
+
+	$theme_btn_padding     = astra_get_option( 'theme-button-padding' );
 
 	$slider_desktop_css = array(
 
@@ -107,10 +114,22 @@ function astra_slider_dynamic_css() {
 			'line-height'    	=> 		esc_attr( $ast_slide_btn_line_height ),
 			'text-transform' 	=> 		esc_attr( $ast_slide_btn_text_transform ),
 			'letter-spacing' 	=> 		astra_get_css_value( $ast_slide_btn_letter_spacing, 'px' ),
+			'border-style'        => 'solid',
+			'border-top-width'    => ( isset( $ast_slide_button_border_size['top'] ) && '' !== $ast_slide_button_border_size['top'] ) ? astra_get_css_value( $ast_slide_button_border_size['top'], 'px' ) : '1px',
+			'border-right-width'  => ( isset( $ast_slide_button_border_size['right'] ) && '' !== $ast_slide_button_border_size['right'] ) ? astra_get_css_value( $ast_slide_button_border_size['right'], 'px' ) : '1px',
+			'border-left-width'   => ( isset( $ast_slide_button_border_size['left'] ) && '' !== $ast_slide_button_border_size['left'] ) ? astra_get_css_value( $ast_slide_button_border_size['left'], 'px' ) : '1px',
+			'border-bottom-width' => ( isset( $ast_slide_button_border_size['bottom'] ) && '' !== $ast_slide_button_border_size['bottom'] ) ? astra_get_css_value( $ast_slide_button_border_size['bottom'], 'px' ) : '1px',
+			'border-color'        => empty( $ast_slide_button_border_color ) ? esc_attr( $ast_slide_btn_bg_color ) : esc_attr( $ast_slide_button_border_color ),
+			'border-radius'       => astra_get_css_value( $ast_slide_button_border_radius, 'px' ),
+			'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
+			'padding-right'       => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
+			'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
+			'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 		),
 		'.ast-single-slide .ast-slider-cta-button:hover' => array(
 			'color' => esc_attr( $ast_slide_btn_txt_hover_color ),
 			'background-color' => esc_attr( $ast_slide_btn_bg_hover_color ),
+			'border-color'     => empty( $ast_slide_button_border_h_color ) ? esc_attr( $ast_slide_btn_bg_hover_color ) : esc_attr( $ast_slide_button_border_h_color ),
 		),
 	);
 
@@ -167,6 +186,10 @@ function astra_slider_dynamic_css() {
 			),
 			'.ast-single-slide .ast-slider-cta-button' => array(
 				'font-size'      	=> 			astra_responsive_font( $ast_slide_btn_font_size, 'tablet' ),
+				'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
+				'padding-right'       => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
+				'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
+				'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
 			),
 		);
 
@@ -191,6 +214,10 @@ function astra_slider_dynamic_css() {
 			),
 			'.ast-single-slide .ast-slider-cta-button' => array(
 				'font-size'      	=> 			astra_responsive_font( $ast_slide_btn_font_size, 'mobile' ),
+				'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
+				'padding-right'       => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
+				'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
+				'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
 			),
 		);
 

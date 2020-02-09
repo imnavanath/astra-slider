@@ -201,7 +201,40 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
             );
             $defaults['slider-buttons-text-transform'] = '';
             $defaults['slider-buttons-line-height']    = '';
-            $defaults['slider-buttons-letter-spacing'] = '';
+			$defaults['slider-buttons-letter-spacing'] = '';
+
+			$defaults['ast-slider-button-border-radius'] = 2;
+			$defaults['ast-slider-button-border-color']   = '';
+			$defaults['ast-slider-button-border-hover-color']   = '';
+			$defaults['theme-button-padding'] = array(
+				'desktop'      => array(
+					'top'    => 10,
+					'right'  => 40,
+					'bottom' => 10,
+					'left'   => 40,
+				),
+				'tablet'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'mobile'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+			$defaults['ast-slider-button-border-size'] = array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			);
 
 			return $defaults;
 		}

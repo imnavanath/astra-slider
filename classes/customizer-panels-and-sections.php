@@ -65,6 +65,14 @@ if ( ! class_exists( 'Astra_Slider_Panels_Configs' ) ) {
 					'priority' => 10,
 					'type'     => 'section',
 				),
+
+				array(
+					'name'     => 'section-slide-carousel',
+					'title'    => __( 'Carousel', 'astra-slider' ),
+					'panel'    => 'panel-astra-slider',
+					'priority' => 15,
+					'type'     => 'section',
+				),
 			);
 
 			$configurations = array_merge( $configurations, $_config );
