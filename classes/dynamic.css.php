@@ -20,8 +20,6 @@ function astra_slider_dynamic_css() {
 
 	$ast_slider_css_output = '';
 
-	$banner_image					= 		astra_get_option( 'astra-slider-banner-1-image' );
-
 	// Slider configs.
 	$background_size				= 		astra_get_option( 'slider-image-size-option' );
 	$custom_background_top_p    	= 		astra_get_option( 'banner-custom-top-padding' );
