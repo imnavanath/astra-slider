@@ -118,8 +118,7 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 					'nextArrow'      => '<button type="button" data-role="none" class="slick-next slick-arrow fa fa-angle-right" aria-label="Next" role="button"></button>',
 				);
 
-				// Ast-Slider configuration
-
+				// Ast-Slider configuration.
 				$dots 				= 		'true';
 				$arrows 			= 		'true';
 				$autoplay 			= 		'true';
@@ -178,7 +177,7 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 				return;
 			}
 
-			if( is_front_page() ) {
+			if( apply_filters( 'ast_slider_enabled_on', is_front_page() ) ) {
 
 				// Slick Style & Scripts.
 				wp_enqueue_style( 'slick-css', ASTRA_SLIDER_BASE_URL . 'assets/css/slick.css', array(), ASTRA_SLIDER_VERSION );
