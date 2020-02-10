@@ -206,7 +206,8 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 			$defaults['ast-slider-button-border-radius'] = '';
 			$defaults['ast-slider-button-border-color']   = '';
 			$defaults['ast-slider-button-border-hover-color']   = '';
-			$defaults['theme-button-padding'] = array(
+			$defaults['ast-slider-button-top-spacing']            = 20;
+			$defaults['ast-slider-button-padding'] = array(
 				'desktop'      => array(
 					'top'    => 10,
 					'right'  => 40,

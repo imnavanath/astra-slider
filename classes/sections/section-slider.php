@@ -1064,8 +1064,8 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 				 * Option: Slider Button Padding
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[theme-button-padding]',
-					'default'        => astra_get_option( 'theme-button-padding' ),
+					'name'           => ASTRA_THEME_SETTINGS . '[ast-slider-button-padding]',
+					'default'        => astra_get_option( 'ast-slider-button-padding' ),
 					'type'           => 'control',
 					'control'        => 'ast-responsive-spacing',
 					'section'        => 'section-slide-design',
@@ -1079,6 +1079,26 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 						'right'  => __( 'Right', 'astra-slider' ),
 						'bottom' => __( 'Bottom', 'astra-slider' ),
 						'left'   => __( 'Left', 'astra-slider' ),
+					),
+				),
+
+				/**
+				 * Option: Slider Button Top Spacing
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[ast-slider-button-top-spacing]',
+					'default'           => '',
+					'type'              => 'control',
+					'control'           => 'ast-slider',
+					'section'           => 'section-slide-design',
+					'priority'          => 60,
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Buttons Top Spacing', 'astra-slider' ),
+					'suffix'            => '',
+					'input_attrs'       => array(
+						'min'  => 0,
+						'step' => 10,
+						'max'  => 500,
 					),
 				),
 			);
