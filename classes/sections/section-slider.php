@@ -863,14 +863,14 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 				 * Option: Button Font Size
 				 */
 				array(
-					'name'        => 'slider-description-font-size',
+					'name'        => 'slider-buttons-font-size',
 					'transport'   => 'postMessage',
 					'title'       => __( 'Size', 'astra-slider' ),
 					'type'        => 'sub-control',
 					'parent'      => ASTRA_THEME_SETTINGS . '[slider-buttons-typography]',
 					'section'     => 'section-slide-design',
 					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( 'slider-description-font-size' ),
+					'default'     => astra_get_option( 'slider-buttons-font-size' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -964,7 +964,7 @@ if ( ! class_exists( 'Astra_Slide_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Scroll On Top Colors Divider
+				 * Option: CTA Design Styling Divider
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[slider-btn-style-divider]',
