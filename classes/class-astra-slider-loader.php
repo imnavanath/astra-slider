@@ -88,9 +88,9 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 					$defaults['ast-slide-' . $base . '-bg-obj']  = array(
 						'background-color'      => '',
 						'background-image'      => ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg',
-						'background-repeat'     => 'repeat',
+						'background-repeat'     => 'no-repeat',
 						'background-position'   => 'center center',
-						'background-size'       => 'auto',
+						'background-size'       => 'cover',
 						'background-attachment' => 'scroll',
 					);
 
@@ -203,7 +203,7 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
             $defaults['slider-buttons-line-height']    = '';
 			$defaults['slider-buttons-letter-spacing'] = '';
 
-			$defaults['ast-slider-button-border-radius'] = 2;
+			$defaults['ast-slider-button-border-radius'] = '';
 			$defaults['ast-slider-button-border-color']   = '';
 			$defaults['ast-slider-button-border-hover-color']   = '';
 			$defaults['theme-button-padding'] = array(

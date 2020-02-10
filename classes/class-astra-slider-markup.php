@@ -129,6 +129,11 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 
 				$slider_conf = compact( 'dots', 'arrows', 'autoplay', 'autoplay_interval', 'fade','speed', 'rtl' );
 
+				// Filter supports for tags.
+				$ast_slider_heading_prefix_tag = apply_filters( 'ast_slider_heading_prefix_tag', 'h6' );
+				$ast_slider_heading_tag = apply_filters( 'ast_slider_heading_tag', 'h2' );
+				$ast_slider_description_tag = apply_filters( 'ast_slider_description_tag', 'p' );
+
 				if( $ast_hompage_slide_count ) {
 
 					for( $base = 1; $base <= $ast_hompage_slide_count; $base++ ) {
@@ -145,9 +150,9 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 
 						$slider_markup .= '<div class="ast-single-slide ast-slide-inner-wrap-' . $base . '">' .
 							'<div class="ast-slide-content">' .
-								'<h6 class="banner-pre-heading">' . ${"banner_pre_heading_$base"} . '</h6>' .
-								'<h2 class="banner-heading">' . ${"banner_heading_$base"} . '</h2>' .
-								'<p class="banner-subheading">' . ${"banner_subheading_$base"} . '</p>' .
+								'<'. $ast_slider_heading_prefix_tag .' class="banner-pre-heading">' . ${"banner_pre_heading_$base"} . '</'. $ast_slider_heading_prefix_tag .'>' .
+								'<'. $ast_slider_heading_tag .' class="banner-heading">' . ${"banner_heading_$base"} . '</'. $ast_slider_heading_tag .'>' .
+								'<'. $ast_slider_description_tag .' class="banner-subheading">' . ${"banner_subheading_$base"} . '</'. $ast_slider_description_tag .'>' .
 							'</div>' .
 							'<div class="ast-slide-cta-wrapper">' .
 								'<a class="ast-slide-button-link" href="' . esc_url( $slide_btn_1_link ) . '"><button class="ast-button ast-slider-cta-button">' . esc_html( $slide_btn_1_text ) .'</button></a>' .
