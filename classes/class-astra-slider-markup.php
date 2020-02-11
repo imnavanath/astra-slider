@@ -155,8 +155,8 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 								'<'. $ast_slider_description_tag .' class="banner-subheading">' . ${"banner_subheading_$base"} . '</'. $ast_slider_description_tag .'>' .
 							'</div>' .
 							'<div class="ast-slide-cta-wrapper">' .
-								'<a class="ast-slide-button-link" href="' . esc_url( $slide_btn_1_link ) . '"><button class="ast-button ast-slider-cta-button">' . esc_html( $slide_btn_1_text ) .'</button></a>' .
-								'<a class="ast-slide-button-link ast-slide-second-btn" href="' . esc_url( $slide_btn_2_link ) . '"><button class="ast-button ast-slider-cta-button">' . esc_html( $slide_btn_2_text ) .'</button></a>' .
+								'<a class="ast-slide-button-link" href="' . esc_url( $slide_btn_1_link ) . '"><button class="ast-button ast-slider-cta-1 ast-slider-cta-button">' . esc_html( $slide_btn_1_text ) .'</button></a>' .
+								'<a class="ast-slide-button-link ast-slide-second-btn" href="' . esc_url( $slide_btn_2_link ) . '"><button class="ast-button ast-slider-cta-2 ast-slider-cta-button">' . esc_html( $slide_btn_2_text ) .'</button></a>' .
 							'</div>	</div>';
 					}
 				}

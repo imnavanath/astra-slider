@@ -104,6 +104,11 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 					$defaults['slider-button-text-hover-color']    	= 		'';
 					$defaults['slider-button-bg-color']   			= 		'';
 					$defaults['slider-button-bg-hover-color'] 		= 		'';
+
+					$defaults['slider-button-2-text-color']      	= 		'';
+					$defaults['slider-button-2-text-hover-color']   = 		'';
+					$defaults['slider-button-2-bg-color']   		= 		'';
+					$defaults['slider-button-2-bg-hover-color'] 	= 		'';
 				}
 			}
 
@@ -230,7 +235,36 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 				'tablet-unit'  => 'px',
 				'mobile-unit'  => 'px',
 			);
+			$defaults['ast-slider-button-2-padding'] = array(
+				'desktop'      => array(
+					'top'    => 10,
+					'right'  => 40,
+					'bottom' => 10,
+					'left'   => 40,
+				),
+				'tablet'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'mobile'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
 			$defaults['ast-slider-button-border-size'] = array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			);
+			$defaults['ast-slider-button-2-border-size'] = array(
 				'top'    => '',
 				'right'  => '',
 				'bottom' => '',

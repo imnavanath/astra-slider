@@ -53,12 +53,19 @@ function astra_slider_dynamic_css() {
 	$ast_slide_descr_text_transform 	= 		astra_get_option( 'slider-description-text-transform' );
 	$ast_slide_descr_letter_spacing 	= 		astra_get_option( 'slider-description-letter-spacing' );
 
-	// Typo & color styles for Buttons.
+	// Color styles for Button 1.
 	$ast_slide_btn_txt_color   			= 		astra_get_option( 'slider-button-text-color' );
 	$ast_slide_btn_txt_hover_color   	= 		astra_get_option( 'slider-button-text-hover-color' );
 	$ast_slide_btn_bg_color   			= 		astra_get_option( 'slider-button-bg-color' );
 	$ast_slide_btn_bg_hover_color   	= 		astra_get_option( 'slider-button-bg-hover-color' );
 
+	// Color styles for Button 2.
+	$ast_slide_btn_2_txt_color   		= 		astra_get_option( 'slider-button-2-text-color' );
+	$ast_slide_btn_2_txt_hover_color   	= 		astra_get_option( 'slider-button-2-text-hover-color' );
+	$ast_slide_btn_2_bg_color   		= 		astra_get_option( 'slider-button-2-bg-color' );
+	$ast_slide_btn_2_bg_hover_color   	= 		astra_get_option( 'slider-button-2-bg-hover-color' );
+
+	// Typo styles for Buttons.
 	$ast_slide_btn_font_family    		= 		astra_get_option( 'slider-buttons-font-family' );
 	$ast_slide_btn_font_weight    		= 		astra_get_option( 'slider-buttons-font-weight' );
 	$ast_slide_btn_font_size      		= 		astra_get_option( 'slider-description-font-size' );
@@ -66,12 +73,24 @@ function astra_slider_dynamic_css() {
 	$ast_slide_btn_text_transform 		= 		astra_get_option( 'slider-buttons-text-transform' );
 	$ast_slide_btn_letter_spacing 		= 		astra_get_option( 'slider-buttons-letter-spacing' );
 
+	// Border styles for Button 1.
 	$ast_slide_button_border_size 		= 		astra_get_option( 'ast-slider-button-border-size' );
 	$ast_slide_button_border_radius		= 		astra_get_option( 'ast-slider-button-border-radius' );
 	$ast_slide_button_border_color      = 		astra_get_option( 'ast-slider-button-border-color' );
 	$ast_slide_button_border_h_color    = 		astra_get_option( 'ast-slider-button-border-hover-color' );
 
+	// Border styles for Button 2.
+	$ast_slide_button_2_border_size 		= 		astra_get_option( 'ast-slider-button-2-border-size' );
+	$ast_slide_button_2_border_radius		= 		astra_get_option( 'ast-slider-button-2-border-radius' );
+	$ast_slide_button_2_border_color      = 		astra_get_option( 'ast-slider-button-2-border-color' );
+	$ast_slide_button_2_border_h_color    = 		astra_get_option( 'ast-slider-button-2-border-hover-color' );
+
+	// Padding setting for Button 1.
 	$slider_btn_padding     			= 		astra_get_option( 'ast-slider-button-padding' );
+
+	// Padding setting for Button 2.
+	$slider_btn_2_padding     			= 		astra_get_option( 'ast-slider-button-2-padding' );
+
 	$slider_btn_top_spacing     		= 		astra_get_option( 'ast-slider-button-top-spacing' );
 
 	$slider_desktop_css = array(
@@ -105,15 +124,18 @@ function astra_slider_dynamic_css() {
 			'letter-spacing' 	=> 		astra_get_css_value( $ast_slide_descr_letter_spacing, 'px' ),
 		),
 		'.ast-single-slide .ast-slider-cta-button' => array(
-			'color' => esc_attr( $ast_slide_btn_txt_color ),
-			'background-color' => esc_attr( $ast_slide_btn_bg_color ),
 			'font-family'    	=> 		astra_get_font_family( $ast_slide_btn_font_family ),
 			'font-weight'    	=> 		esc_attr( $ast_slide_btn_font_weight ),
 			'font-size'      	=> 		astra_responsive_font( $ast_slide_btn_font_size, 'desktop' ),
 			'line-height'    	=> 		esc_attr( $ast_slide_btn_line_height ),
 			'text-transform' 	=> 		esc_attr( $ast_slide_btn_text_transform ),
 			'letter-spacing' 	=> 		astra_get_css_value( $ast_slide_btn_letter_spacing, 'px' ),
-			'border-style'        => 'solid',
+			'border-style'      => 		'solid',
+			'transition'		=> 		'all .2s linear',
+		),
+		'.ast-single-slide .ast-slider-cta-1' => array(
+			'color' => esc_attr( $ast_slide_btn_txt_color ),
+			'background-color' => esc_attr( $ast_slide_btn_bg_color ),
 			'border-top-width'    => ( isset( $ast_slide_button_border_size['top'] ) && '' !== $ast_slide_button_border_size['top'] ) ? astra_get_css_value( $ast_slide_button_border_size['top'], 'px' ) : '1px',
 			'border-right-width'  => ( isset( $ast_slide_button_border_size['right'] ) && '' !== $ast_slide_button_border_size['right'] ) ? astra_get_css_value( $ast_slide_button_border_size['right'], 'px' ) : '1px',
 			'border-left-width'   => ( isset( $ast_slide_button_border_size['left'] ) && '' !== $ast_slide_button_border_size['left'] ) ? astra_get_css_value( $ast_slide_button_border_size['left'], 'px' ) : '1px',
@@ -125,10 +147,29 @@ function astra_slider_dynamic_css() {
 			'padding-bottom'      => astra_responsive_spacing( $slider_btn_padding, 'bottom', 'desktop' ),
 			'padding-left'        => astra_responsive_spacing( $slider_btn_padding, 'left', 'desktop' ),
 		),
-		'.ast-single-slide .ast-slider-cta-button:hover' => array(
+		'.ast-single-slide .ast-slider-cta-1:hover' => array(
 			'color' => esc_attr( $ast_slide_btn_txt_hover_color ),
 			'background-color' => esc_attr( $ast_slide_btn_bg_hover_color ),
 			'border-color'     => empty( $ast_slide_button_border_h_color ) ? esc_attr( $ast_slide_btn_bg_hover_color ) : esc_attr( $ast_slide_button_border_h_color ),
+		),
+		'.ast-single-slide .ast-slider-cta-2' => array(
+			'color' => esc_attr( $ast_slide_btn_2_txt_color ),
+			'background-color' => esc_attr( $ast_slide_btn_2_bg_color ),
+			'border-top-width'    => ( isset( $ast_slide_button_2_border_size['top'] ) && '' !== $ast_slide_button_2_border_size['top'] ) ? astra_get_css_value( $ast_slide_button_2_border_size['top'], 'px' ) : '1px',
+			'border-right-width'  => ( isset( $ast_slide_button_2_border_size['right'] ) && '' !== $ast_slide_button_2_border_size['right'] ) ? astra_get_css_value( $ast_slide_button_2_border_size['right'], 'px' ) : '1px',
+			'border-left-width'   => ( isset( $ast_slide_button_2_border_size['left'] ) && '' !== $ast_slide_button_2_border_size['left'] ) ? astra_get_css_value( $ast_slide_button_2_border_size['left'], 'px' ) : '1px',
+			'border-bottom-width' => ( isset( $ast_slide_button_2_border_size['bottom'] ) && '' !== $ast_slide_button_2_border_size['bottom'] ) ? astra_get_css_value( $ast_slide_button_2_border_size['bottom'], 'px' ) : '1px',
+			'border-color'        => empty( $ast_slide_button_2_border_color ) ? esc_attr( $ast_slide_btn_2_bg_color ) : esc_attr( $ast_slide_button_2_border_color ),
+			'border-radius'       => astra_get_css_value( $ast_slide_button_2_border_radius, 'px' ),
+			'padding-top'         => astra_responsive_spacing( $slider_btn_2_padding, 'top', 'desktop' ),
+			'padding-right'       => astra_responsive_spacing( $slider_btn_2_padding, 'right', 'desktop' ),
+			'padding-bottom'      => astra_responsive_spacing( $slider_btn_2_padding, 'bottom', 'desktop' ),
+			'padding-left'        => astra_responsive_spacing( $slider_btn_2_padding, 'left', 'desktop' ),
+		),
+		'.ast-single-slide .ast-slider-cta-2:hover' => array(
+			'color' => esc_attr( $ast_slide_btn_2_txt_hover_color ),
+			'background-color' => esc_attr( $ast_slide_btn_2_bg_hover_color ),
+			'border-color'     => empty( $ast_slide_button_2_border_h_color ) ? esc_attr( $ast_slide_btn_2_bg_hover_color ) : esc_attr( $ast_slide_button_2_border_h_color ),
 		),
 		'.ast-single-slide .ast-slide-cta-wrapper' => array(
 			'margin-top' => astra_get_css_value( $slider_btn_top_spacing, 'px' ),
@@ -188,10 +229,18 @@ function astra_slider_dynamic_css() {
 			),
 			'.ast-single-slide .ast-slider-cta-button' => array(
 				'font-size'      	=> 			astra_responsive_font( $ast_slide_btn_font_size, 'tablet' ),
-				'padding-top'         => astra_responsive_spacing( $slider_btn_padding, 'top', 'tablet' ),
-				'padding-right'       => astra_responsive_spacing( $slider_btn_padding, 'right', 'tablet' ),
-				'padding-bottom'      => astra_responsive_spacing( $slider_btn_padding, 'bottom', 'tablet' ),
-				'padding-left'        => astra_responsive_spacing( $slider_btn_padding, 'left', 'tablet' ),
+			),
+			'.ast-single-slide .ast-slider-cta-1' => array(
+				'padding-top'       => 			astra_responsive_spacing( $slider_btn_padding, 'top', 'tablet' ),
+				'padding-right'     => 			astra_responsive_spacing( $slider_btn_padding, 'right', 'tablet' ),
+				'padding-bottom'    => 			astra_responsive_spacing( $slider_btn_padding, 'bottom', 'tablet' ),
+				'padding-left'      => 			astra_responsive_spacing( $slider_btn_padding, 'left', 'tablet' ),
+			),
+			'.ast-single-slide .ast-slider-cta-2' => array(
+				'padding-top'       => 			astra_responsive_spacing( $slider_btn_2_padding, 'top', 'tablet' ),
+				'padding-right'     => 			astra_responsive_spacing( $slider_btn_2_padding, 'right', 'tablet' ),
+				'padding-bottom'    => 			astra_responsive_spacing( $slider_btn_2_padding, 'bottom', 'tablet' ),
+				'padding-left'      => 			astra_responsive_spacing( $slider_btn_2_padding, 'left', 'tablet' ),
 			),
 		);
 
@@ -216,10 +265,18 @@ function astra_slider_dynamic_css() {
 			),
 			'.ast-single-slide .ast-slider-cta-button' => array(
 				'font-size'      	=> 			astra_responsive_font( $ast_slide_btn_font_size, 'mobile' ),
-				'padding-top'         => astra_responsive_spacing( $slider_btn_padding, 'top', 'mobile' ),
-				'padding-right'       => astra_responsive_spacing( $slider_btn_padding, 'right', 'mobile' ),
-				'padding-bottom'      => astra_responsive_spacing( $slider_btn_padding, 'bottom', 'mobile' ),
-				'padding-left'        => astra_responsive_spacing( $slider_btn_padding, 'left', 'mobile' ),
+			),
+			'.ast-single-slide .ast-slider-cta-1' => array(
+				'padding-top'       => 			astra_responsive_spacing( $slider_btn_padding, 'top', 'mobile' ),
+				'padding-right'     => 			astra_responsive_spacing( $slider_btn_padding, 'right', 'mobile' ),
+				'padding-bottom'    => 			astra_responsive_spacing( $slider_btn_padding, 'bottom', 'mobile' ),
+				'padding-left'      => 			astra_responsive_spacing( $slider_btn_padding, 'left', 'mobile' ),
+			),
+			'.ast-single-slide .ast-slider-cta-2' => array(
+				'padding-top'       => 			astra_responsive_spacing( $slider_btn_2_padding, 'top', 'mobile' ),
+				'padding-right'     => 			astra_responsive_spacing( $slider_btn_2_padding, 'right', 'mobile' ),
+				'padding-bottom'    => 			astra_responsive_spacing( $slider_btn_2_padding, 'bottom', 'mobile' ),
+				'padding-left'      => 			astra_responsive_spacing( $slider_btn_2_padding, 'left', 'mobile' ),
 			),
 		);
 
