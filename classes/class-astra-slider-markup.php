@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 				return;
 			}
 
-			if( is_front_page() ) {
+			if( apply_filters( 'ast_slider_enabled_on', is_front_page() ) ) {
 
 				$ast_hompage_slide_count = apply_filters( 'ast_hompage_slide_count', 3 );
 
@@ -118,8 +118,7 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 					'nextArrow'      => '<button type="button" data-role="none" class="slick-next slick-arrow fa fa-angle-right" aria-label="Next" role="button"></button>',
 				);
 
-				// Ast-Slider configuration
-
+				// Ast-Slider Slick configuration.
 				$dots 				= 		'true';
 				$arrows 			= 		'true';
 				$autoplay 			= 		'true';
@@ -130,6 +129,11 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 
 				$slider_conf = compact( 'dots', 'arrows', 'autoplay', 'autoplay_interval', 'fade','speed', 'rtl' );
 
+				// Filter supports for tags.
+				$ast_slider_heading_prefix_tag = apply_filters( 'ast_slider_heading_prefix_tag', 'h6' );
+				$ast_slider_heading_tag = apply_filters( 'ast_slider_heading_tag', 'h2' );
+				$ast_slider_description_tag = apply_filters( 'ast_slider_description_tag', 'p' );
+
 				if( $ast_hompage_slide_count ) {
 
 					for( $base = 1; $base <= $ast_hompage_slide_count; $base++ ) {
@@ -137,14 +141,23 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 						${"banner_pre_heading_$base"} 		= 		astra_get_option( 'astra-slider-banner-' . $base . '-pre-heading' );
 						${"banner_heading_$base"} 			= 		astra_get_option( 'astra-slider-banner-' . $base . '-heading' );
 						${"banner_subheading_$base"} 		= 		astra_get_option( 'astra-slider-banner-' . $base . '-subheading' );
-						${"banner_image_$base"} 			= 		astra_get_option( 'astra-slider-banner-' . $base . '-image' );
 
-						$slider_markup .= '<div class="ast-single-slide">' .
-								'<div class="ast-slide-content">' .
-									'<h6 class="banner-pre-heading">' . ${"banner_pre_heading_$base"} . '</h6>' .
-									'<h2 class="banner-heading">' . ${"banner_heading_$base"} . '</h2>' .
-									'<p class="banner-subheading">' . ${"banner_subheading_$base"} . '</p>' .
-								'</div> </div>';
+						$slide_btn_1_text 	= astra_get_option( 'slide-'. $base .'-cta-1-text' );
+						$slide_btn_1_link 	= astra_get_option( 'slide-'. $base .'-cta-1-link' );
+
+						$slide_btn_2_text 	= astra_get_option( 'slide-'. $base .'-cta-2-text' );
+						$slide_btn_2_link 	= astra_get_option( 'slide-'. $base .'-cta-2-link' );
+
+						$slider_markup .= '<div class="ast-single-slide ast-slide-inner-wrap-' . $base . '">' .
+							'<div class="ast-slide-content">' .
+								'<'. $ast_slider_heading_prefix_tag .' class="banner-pre-heading">' . ${"banner_pre_heading_$base"} . '</'. $ast_slider_heading_prefix_tag .'>' .
+								'<'. $ast_slider_heading_tag .' class="banner-heading">' . ${"banner_heading_$base"} . '</'. $ast_slider_heading_tag .'>' .
+								'<'. $ast_slider_description_tag .' class="banner-subheading">' . ${"banner_subheading_$base"} . '</'. $ast_slider_description_tag .'>' .
+							'</div>' .
+							'<div class="ast-slide-cta-wrapper">' .
+								'<a class="ast-slide-button-link" href="' . esc_url( $slide_btn_1_link ) . '"><button class="ast-button ast-slider-cta-1 ast-slider-cta-button">' . esc_html( $slide_btn_1_text ) .'</button></a>' .
+								'<a class="ast-slide-button-link ast-slide-second-btn" href="' . esc_url( $slide_btn_2_link ) . '"><button class="ast-button ast-slider-cta-2 ast-slider-cta-button">' . esc_html( $slide_btn_2_text ) .'</button></a>' .
+							'</div>	</div>';
 					}
 				}
 
@@ -169,7 +182,7 @@ if ( ! class_exists( 'Astra_Slider_Markup' ) ) {
 				return;
 			}
 
-			if( is_front_page() ) {
+			if( apply_filters( 'ast_slider_enabled_on', is_front_page() ) ) {
 
 				// Slick Style & Scripts.
 				wp_enqueue_style( 'slick-css', ASTRA_SLIDER_BASE_URL . 'assets/css/slick.css', array(), ASTRA_SLIDER_VERSION );

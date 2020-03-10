@@ -5,7 +5,6 @@
 .home-page-ast-slider .ast-single-slide {
     text-align: center;
 }
-
 .home-page-ast-slider.ast-full-home-page-ast-slider {
     height: 100vh;
     -js-display: flex;
@@ -20,7 +19,9 @@
 .home-page-ast-slider .ast-single-slide {
     width: 100%;
 }
-
+.ast-slide-second-btn {
+    margin-left: 10px;
+}
 /* Custom CSS Style */
 button.slick-prev.slick-arrow,
 button.slick-next.slick-arrow {
@@ -37,7 +38,6 @@ button.slick-next.slick-arrow {
 button.slick-prev.slick-arrow:before {
     content: "‹";
 }
-
 button.slick-next.slick-arrow:before {
     content: "›";
 }

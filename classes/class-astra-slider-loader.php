@@ -78,10 +78,37 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 			if( $ast_hompage_slide_count ) {
 
 				for( $base = 1; $base <= $ast_hompage_slide_count; $base++ ) {
-                    $defaults['astra-slider-banner-' . $base . '-pre-heading']     	= 		__( 'Prefix Title', 'astra-slider' );
+
+					// Ast-Slide Content config.
+					$defaults['astra-slider-banner-' . $base . '-pre-heading']     	= 		__( 'Prefix Title', 'astra-slider' );
                     $defaults['astra-slider-banner-' . $base . '-heading']     		= 		__( 'Perfect Theme for Any Website', 'astra-slider' );
 					$defaults['astra-slider-banner-' . $base . '-subheading']  		= 		__( 'Lightning Fast & Easily Customizable', 'astra-slider' );
-					$defaults['astra-slider-banner-' . $base . '-image']     		= 		ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg';
+
+					// Ast-Slide Image config.
+					$defaults['ast-slide-' . $base . '-bg-obj']  = array(
+						'background-color'      => '',
+						'background-image'      => ASTRA_SLIDER_BASE_URL . 'assets/images/banner.jpg',
+						'background-repeat'     => 'no-repeat',
+						'background-position'   => 'center center',
+						'background-size'       => 'cover',
+						'background-attachment' => 'scroll',
+					);
+
+					$defaults['slide-'. $base .'-cta-1-text']     	= 		__( 'Read More »', 'astra-slider' );
+					$defaults['slide-'. $base .'-cta-2-text']     	= 		__( 'Let\'s Connect »', 'astra-slider' );
+
+					$defaults['slide-'. $base .'-cta-1-link']    	= 		'#';
+					$defaults['slide-'. $base .'-cta-2-link']     	= 		'#';
+
+					$defaults['slider-button-text-color']      	  	= 		'';
+					$defaults['slider-button-text-hover-color']    	= 		'';
+					$defaults['slider-button-bg-color']   			= 		'';
+					$defaults['slider-button-bg-hover-color'] 		= 		'';
+
+					$defaults['slider-button-2-text-color']      	= 		'';
+					$defaults['slider-button-2-text-hover-color']   = 		'';
+					$defaults['slider-button-2-bg-color']   		= 		'';
+					$defaults['slider-button-2-bg-hover-color'] 	= 		'';
 				}
 			}
 
@@ -109,10 +136,9 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
 				'mobile-unit'  => 'px',
 			);
 
-			$defaults['slider-to-top-icon-color']      = '';
-			$defaults['slider-to-top-icon-h-color']    = '';
-			$defaults['slider-to-top-icon-bg-color']   = '';
-            $defaults['slider-to-top-icon-h-bg-color'] = '';
+			$defaults['slider-centent-prefix-color']      = '';
+			$defaults['slider-centent-heading-color']   = '';
+			$defaults['slider-centent-description-color']   = '';
 
             /**
              * Prefix Typography Config
@@ -128,7 +154,7 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
                 'mobile-unit'  => 'px',
             );
             $defaults['slider-pre-heading-text-transform'] = '';
-            $defaults['slider-pre-heading-line-height']    = 1;
+            $defaults['slider-pre-heading-line-height']    = '';
             $defaults['slider-pre-heading-letter-spacing'] = '';
 
             /**
@@ -145,7 +171,7 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
                 'mobile-unit'  => 'px',
             );
             $defaults['slider-heading-text-transform'] = '';
-            $defaults['slider-heading-line-height']    = 1;
+            $defaults['slider-heading-line-height']    = '';
             $defaults['slider-heading-letter-spacing'] = '';
 
             /**
@@ -162,8 +188,88 @@ if ( ! class_exists( 'Astra_Slider_Loader' ) ) {
                 'mobile-unit'  => 'px',
             );
             $defaults['slider-description-text-transform'] = '';
-            $defaults['slider-description-line-height']    = 1;
-            $defaults['slider-description-letter-spacing'] = '';
+            $defaults['slider-description-line-height']    = '';
+			$defaults['slider-description-letter-spacing'] = '';
+
+			/**
+             * Buttons Typography Config
+             */
+            $defaults['slider-buttons-font-weight']    = 'inherit';
+            $defaults['slider-buttons-font-family']    = 'inherit';
+            $defaults['slider-buttons-font-size']      = array(
+                'desktop'      => '',
+                'tablet'       => '',
+                'mobile'       => '',
+                'desktop-unit' => 'px',
+                'tablet-unit'  => 'px',
+                'mobile-unit'  => 'px',
+            );
+            $defaults['slider-buttons-text-transform'] = '';
+            $defaults['slider-buttons-line-height']    = '';
+			$defaults['slider-buttons-letter-spacing'] = '';
+
+			$defaults['ast-slider-button-border-radius'] = '';
+			$defaults['ast-slider-button-border-color']   = '';
+			$defaults['ast-slider-button-border-hover-color']   = '';
+			$defaults['ast-slider-button-top-spacing']            = 20;
+			$defaults['ast-slider-button-padding'] = array(
+				'desktop'      => array(
+					'top'    => 10,
+					'right'  => 40,
+					'bottom' => 10,
+					'left'   => 40,
+				),
+				'tablet'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'mobile'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+			$defaults['ast-slider-button-2-padding'] = array(
+				'desktop'      => array(
+					'top'    => 10,
+					'right'  => 40,
+					'bottom' => 10,
+					'left'   => 40,
+				),
+				'tablet'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'mobile'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+			$defaults['ast-slider-button-border-size'] = array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			);
+			$defaults['ast-slider-button-2-border-size'] = array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			);
 
 			return $defaults;
 		}
