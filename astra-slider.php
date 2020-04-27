@@ -67,7 +67,7 @@ function deactivate_astra_homepage_slider() { }
  *
  * Since everything within the plugin is registered via hooks,
  * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
+ * not affect the page life cycle
  *
  * @since    1.0.0
  */
