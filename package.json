@@ -1,30 +1,30 @@
 {
-    "name": "astra-slider",
-    "version": "1.0.0",
-    "description": "Astra Slider",
-    "main": "Gruntfile.js",
-    "scripts": {
-      "phpcs": "vendor/bin/phpcs",
-      "prebuild:packages": "npm run clean:packages && lerna run build"
-    },
-    "dependencies": {
-      "moment-timezone": "^0.5.14"
-    },
-    "devDependencies": {
-      "grunt": "^0.4.5",
-      "grunt-contrib-clean": "^1.1.0",
-      "grunt-contrib-compress": "^1.4.3",
-      "grunt-contrib-copy": "^1.0.0",
-      "grunt-contrib-jshint": "^2.1.0",
-      "grunt-release": "^0.14.0",
-      "grunt-wp-i18n": "^1.0.2",
-      "grunt-wp-readme-to-markdown": "^2.0.1",
-      "shelljs": "~0.8.1"
-    },
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/imnavanath/astra-slider"
-    },
-    "author": "Navanath",
-    "license": "ISC"
-  }
+  "name": "astra-slider",
+  "version": "1.0.0",
+  "description": "Astra Slider",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "phpcs": "vendor/bin/phpcs",
+    "prebuild:packages": "npm run clean:packages && lerna run build"
+  },
+  "dependencies": {
+    "moment-timezone": "^0.5.14"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-compress": "^1.4.3",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-release": "^0.14.0",
+    "grunt-wp-i18n": "^1.0.2",
+    "grunt-wp-readme-to-markdown": "^2.0.1",
+    "shelljs": "~0.8.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imnavanath/astra-slider"
+  },
+  "author": "Navanath",
+  "license": "ISC"
+}
