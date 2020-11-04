@@ -11,7 +11,7 @@
 				<?php }								
 				$sliderurl = get_post_meta( get_the_ID(),'wpsisac_slide_link', true );
 				if($sliderurl != '') { ?>
-				<div class="wpsisac-readmore"><a href="<?php echo esc_url($sliderurl); ?>" class="wpsisac-slider-readmore"><?php esc_html_e( 'Read More', 'wp-slick-slider-and-image-carousel' ); ?></a></div>
+				<div class="wpsisac-readmore"><a href="<?php echo esc_url($sliderurl); ?>" class="wpsisac-slider-readmore"><?php esc_html_e( 'Read More', 'astra-slider' ); ?></a></div>
 				<?php } ?>
 			</div>
 		</div>
