@@ -20,9 +20,6 @@ aseet/bsf-core/.git
 phpcs-summary.log
 phpcs-full.log
 
-# NPM log/lock files
-package-lock.json
-
 # Exclude OS specific files
 .DS_Store
 
