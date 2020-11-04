@@ -1,3 +1,9 @@
+<?php
+/**
+ * This is just reference file to create & utilize in loop.
+ */
+?>
+
 <div class="wpsisac-image-slide">
 	<div class="wpsisac-slide-wrap" <?php echo $slider_height_css ; ?>>		
 		<img src="<?php echo esc_url($slider_img); ?>" alt="<?php the_title(); ?>" />
